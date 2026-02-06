@@ -49,7 +49,7 @@ export const Banner = () => {
 
   return (
     <>
-      <div className="relative w-full h-[80vh] overflow-hidden">
+      <div className="relative w-full h-[80vh] overflow-hidden max-w-7xl mx-auto">
         {banners.map((banner, i) => (
           <div
             key={banner.id}
@@ -94,42 +94,91 @@ export const Banner = () => {
           ))}
         </div>
       </div>
-      <div className="absolute top-50 left-10">
-        <h2 className="text-6xl text-white font-bold py-4">
+
+      <div className="absolute top-1/2 left-10 -translate-y-1/2 max-w-xl">
+        <h2 className="text-5xl font-bold text-white leading-tight mb-4">
           Grow Your Capital <br />
           with Smarter Investment
         </h2>
-        <p className="text-xl text-white text-justify max-w-xl pb-4">
+
+        <p className="text-lg text-white/90 leading-relaxed mb-6">
           Grow your capital with smarter investments designed to maximize
-          returns and minimize risk, Make informed financial decisions today to
+          returns and minimize risk. Make informed financial decisions today to
           secure a stronger, wealthier future.
         </p>
-        <button className="bg-white hover:bg-green-300 px-4 py-2 rounded-4xl text-xl text-gray-600 font-bold "><a href="/contact">Contact Us</a></button>
-        
-        <button className="bg-white hover:bg-green-300 px-4 py-2 rounded-4xl text-xl text-gray-600 font-bold ml-4 "><a href="/instantloan">Instant Loan</a></button>
-      </div>
-      <div>
-        <h4 className="text-2xl font-bold text-center text-pink-500 py-4">How It Works</h4>
-        <h2 className="text-4xl font-bold text-center py-2">Get Your Loan in 3 Easy Steps</h2>
-        <div className="grid grid-cols-3 place-items-center place-content-around py-4 ">
-          <div className="grid place-content-center place-items-center gap-3 border-2 border-dashed border-orange-950 p-4 rounded-4xl hover:scale-[1.03]">
-            <img className="w-25 h-auto object-contain" src="https://chakrafin.com/images/calculatoricon.png" alt="image" />
-            <h3 className="text-2xl font-semibold text-orange-400">Select Amount and Terms</h3>
-            <p className="text-lg text-justify max-w-sm">Choose the loan amount and repayment terms that suit your financial goals.</p>
-          </div>
-           <div className="grid place-content-center place-items-center gap-3 border-2 border-dashed border-orange-950 p-4 rounded-4xl hover:scale-[1.03]">
-            <img className="w-25 h-auto object-contain" src="https://chakrafin.com/images/enterpersonal.png" alt="image" />
-            <h3 className="text-2xl font-semibold text-orange-400">Enter Your Personal Information</h3>
-            <p className="text-lg text-justify max-w-sm">Provide your details securely to start the loan application process.</p>
-          </div>
-          <div className="grid place-content-center place-items-center gap-3 border-2 border-dashed border-orange-950 p-4 rounded-4xl hover:scale-[1.03]">
-            <img className="w-25 h-auto object-contain" src="https://chakrafin.com/images/loanapprovedicon.png" alt="image" />
-            <h3 className="text-2xl  font-semibold text-orange-400">Get Loan Approved in 48 Hours</h3>
-            <p className="text-lg text-justify max-w-sm">Quick and efficient approval process to get your loan in just two days.</p>
-          </div>
+
+        <div className="flex gap-4">
+          <a
+            href="/contact"
+            className="px-6 py-3 rounded-full bg-white text-[#1E6FB8] font-semibold
+                 hover:bg-[#F4F6F8] transition hover:scale-[1.03]"
+          >
+            Contact Us
+          </a>
+
+          <a
+            href="/instantloan"
+            className="px-6 py-3 rounded-full bg-[#F47C20] text-white font-semibold
+                 hover:opacity-90 transition hover:scale-[1.03]"
+          >
+            Instant Loan
+          </a>
         </div>
       </div>
 
+      <div className="bg-[#F4F6F8] py-14">
+        <h4 className="text-sm font-semibold text-center text-[#F47C20] uppercase tracking-wide">
+          How It Works
+        </h4>
+        <h2 className="text-3xl font-bold text-center text-[#1E6FB8] mt-2 mb-10">
+          Get Your Loan in 3 Easy Steps
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 ">
+          <div
+            className="grid place-content-center place-items-center bg-white rounded-2xl p-6 text-center border border-dashed border-[#F47C20]/40 hover:scale-[1.03] transition shadow-sm">
+            <img
+              className="w-20 mx-auto mb-4 object-contain"
+              src="https://chakrafin.com/images/calculatoricon.png"
+              alt="image"
+            />
+            <h3 className="text-xl font-semibold text-[#F47C20] mb-2">
+              Select Amount and Terms
+            </h3>
+            <p className="text-base text-gray-700 leading-relaxed">
+              Choose the loan amount and repayment terms that suit your
+              financial goals.
+            </p>
+          </div>
+          <div  className="grid place-content-center place-items-center bg-white rounded-2xl p-6 text-center border border-dashed border-[#F47C20]/40 hover:scale-[1.03] transition shadow-sm">
+            <img
+              className="w-20 mx-auto mb-4 object-contain"
+              src="https://chakrafin.com/images/enterpersonal.png"
+              alt="image"
+            />
+            <h3 className="text-xl font-semibold text-[#F47C20] mb-2">
+              Enter Your Personal Information
+            </h3>
+            <p className="text-base text-gray-700 leading-relaxed">
+              Provide your details securely to start the loan application
+              process.
+            </p>
+          </div>
+          <div  className="grid place-content-center place-items-center bg-white rounded-2xl p-6 text-center border border-dashed border-[#F47C20]/40 hover:scale-[1.03] transition shadow-sm">
+            <img
+              className="w-20 mx-auto mb-4 object-contain"
+              src="https://chakrafin.com/images/loanapprovedicon.png"
+              alt="image"
+            />
+            <h3 className="text-xl font-semibold text-[#F47C20] mb-2">
+              Get Loan Approved in 48 Hours
+            </h3>
+            <p className="text-base text-gray-700 leading-relaxed">
+              Quick and efficient approval process to get your loan in just two
+              days.
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
