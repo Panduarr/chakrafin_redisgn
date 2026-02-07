@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/app/components/shared/Footer";
 import Navbar from "@/app/components/shared/Navbar";
 import { useEffect, useState } from "react";
 
@@ -7,6 +8,7 @@ function Home() {
     <div>
       <Navbar active="home" />
       <Banner />
+      <Footer />
     </div>
   );
 }
