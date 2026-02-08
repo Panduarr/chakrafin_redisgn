@@ -67,8 +67,8 @@ function Footer() {
 
       {/* Credit */}
       <div className="bg-[#EA580C] text-white text-center py-2 text-sm border-t border-white/30">
-        Design & Developed by{" "}
-        <span className="underline font-medium">SSD TechInfra Solutions</span>
+        Design & Developed by
+        <a className="underline font-medium" href="https://www.ssdtechinfrasolutions.in">SSD TechInfra Solutions</a>
       </div>
     </footer>
   );

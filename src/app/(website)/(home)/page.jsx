@@ -51,7 +51,8 @@ export const Banner = () => {
 
   return (
     <>
-      <div className="relative w-full h-[80vh] overflow-hidden max-w-7xl mx-auto">
+      <div className="relative w-full h-[65vh] overflow-hidden max-w-7xl mx-auto">
+        {/* Images */}
         {banners.map((banner, i) => (
           <div
             key={banner.id}
@@ -67,12 +68,48 @@ export const Banner = () => {
           </div>
         ))}
 
+        {/* Dark Overlay (optional but recommended) */}
+        <div className="absolute inset-0 bg-black/40 z-[1]" />
+
+        {/* Text Overlay */}
+        <div className="absolute inset-0 flex items-center z-[2]">
+          <div className="w-full">
+            <div className="max-w-7xl mx-auto px-4 md:px-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
+                Grow Your Capital <br />
+                with Smarter Investment
+              </h2>
+
+              <p className="mt-4 text-base md:text-lg text-white/90 max-w-xl leading-relaxed">
+                Grow your capital with smarter investments designed to maximize
+                returns and minimize risk.
+              </p>
+
+              <div className="mt-6 flex gap-4">
+                <a
+                  href="/contact"
+                  className="px-6 py-3 rounded-full bg-white text-[#1E6FB8] font-semibold hover:scale-[1.03] transition"
+                >
+                  Contact Us
+                </a>
+
+                <a
+                  href="/instantloan"
+                  className="px-6 py-3 rounded-full bg-[#F47C20] text-white font-semibold hover:scale-[1.03] transition"
+                >
+                  Instant Loan
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Prev */}
         <button
           onClick={() =>
             setIndex((index - 1 + banners.length) % banners.length)
           }
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-[3] bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center"
         >
           ❮
         </button>
@@ -80,56 +117,22 @@ export const Banner = () => {
         {/* Next */}
         <button
           onClick={() => setIndex((index + 1) % banners.length)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-[3] bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center"
         >
           ❯
         </button>
 
         {/* Dots */}
-        <div className="absolute bottom-6 w-full flex justify-center gap-3 z-20">
+        <div className="absolute bottom-6 w-full flex justify-center gap-3 z-[3]">
           {banners.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full transition ${i === index ? "bg-white" : "bg-white/50"}`}
+              className={`w-3 h-3 rounded-full transition ${
+                i === index ? "bg-white" : "bg-white/50"
+              }`}
             />
           ))}
-        </div>
-      </div>
-
-      {/* Banner Text Overlay */}
-      <div className="absolute inset-0 flex items-center">
-        <div className="w-full">
-          <div className="max-w-7xl mx-auto px-4 md:px-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
-              Grow Your Capital <br />
-              with Smarter Investment
-            </h2>
-
-            <p className="mt-4 text-base md:text-lg text-white/90 max-w-xl leading-relaxed">
-              Grow your capital with smarter investments designed to maximize
-              returns and minimize risk. Make informed financial decisions today
-              to secure a stronger, wealthier future.
-            </p>
-
-            <div className="mt-6 flex gap-4">
-              <a
-                href="/contact"
-                className="px-6 py-3 rounded-full bg-white text-[#1E6FB8] font-semibold
-                     hover:scale-[1.03] transition"
-              >
-                Contact Us
-              </a>
-
-              <a
-                href="/instantloan"
-                className="px-6 py-3 rounded-full bg-[#F47C20] text-white font-semibold
-                     hover:scale-[1.03] transition"
-              >
-                Instant Loan
-              </a>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -213,10 +216,7 @@ export const Banner = () => {
               {/* Vision & Mission */}
               <div className="grid grid-cols-1 gap-6">
                 {/* Vision */}
-                <div
-                  className="border-2  border-[#F47C20] p-6 rounded-3xl
-                        transition transform hover:scale-[1.03]"
-                >
+                <div className="border-2  border-[#F47C20] p-6 rounded-3xl transition transform hover:scale-[1.03]">
                   <h3 className="text-lg md:text-xl text-center font-semibold text-[#2B2B2B] mb-3">
                     Our Vision
                   </h3>
@@ -231,10 +231,7 @@ export const Banner = () => {
                 </div>
 
                 {/* Mission */}
-                <div
-                  className="border-2 border-[#F47C20] p-6 rounded-3xl
-                        transition transform hover:scale-[1.03]"
-                >
+                <div className="border-2 border-[#F47C20] p-6 rounded-3xl transition transform hover:scale-[1.03]">
                   <h3 className="text-lg md:text-xl text-center font-semibold text-[#2B2B2B] mb-3">
                     Our Mission
                   </h3>
@@ -250,8 +247,7 @@ export const Banner = () => {
               {/* Image */}
               <div className="flex justify-center md:justify-end">
                 <img
-                  className="w-full  rounded-3xl object-contain
-                     transition transform hover:scale-[1.03]"
+                  className="w-full  rounded-3xl object-contain transition transform hover:scale-[1.03]"
                   src="https://chakrafin.com/images/aboutusimg3.webp"
                   alt="About Chakra Financial Services"
                 />
