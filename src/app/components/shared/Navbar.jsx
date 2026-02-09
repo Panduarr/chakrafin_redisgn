@@ -56,7 +56,7 @@ function Navbar({ active = "home" }) {
 
       {/* Main Navbar */}
       <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-3">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-1">
           {/* Logo */}
           <img
             className="w-32 md:w-40"
