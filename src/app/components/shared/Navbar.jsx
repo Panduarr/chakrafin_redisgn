@@ -65,7 +65,7 @@ function Navbar({ active = "home" }) {
           />
 
           {/* Desktop Menu */}
-          <ul className="hidden md:grid grid-cols-5 gap-x-8 text-base font-medium">
+          <ul className="hidden lg:flex flex-cols gap-x-4 text-base font-medium">
             {[
               { key: "home", label: "Home", link: "/" },
               { key: "about", label: "About Us", link: "#about" },

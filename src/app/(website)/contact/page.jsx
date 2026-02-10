@@ -1,12 +1,18 @@
-import Navbar from '@/app/components/shared/Navbar'
-import React from 'react'
+"use client";
+import Navbar from "@/app/components/shared/Navbar";
+import { useState } from "react";
 
 function Contact() {
   return (
     <div>
-        <Navbar active='contact' />
+      <Navbar active="contact" />
+      
+      
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
+
+
+
