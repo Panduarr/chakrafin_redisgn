@@ -38,6 +38,9 @@ export const Banner = () => {
       title: "Banner image",
     },
   ];
+  const [visionOpen, setVisionOpen] = useState(false);
+  const [missionOpen, setMissionOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const [index, setIndex] = useState(0);
 
@@ -193,12 +196,9 @@ export const Banner = () => {
         {/* About */}
         <section id="about" className="bg-[#F4F6F8] py-14">
           <div className="max-w-7xl mx-auto px-4 md:px-12">
-            {/* Heading */}
             <h2 className="text-xl md:text-3xl text-center font-bold text-[#2B2B2B] mb-4">
               About Us
             </h2>
-
-            {/* Intro */}
             <p className="text-sm md:text-base text-justify text-[#374151] leading-relaxed mb-10">
               <strong>Chakra Financial Services</strong> is a client-focused
               financial consultancy dedicated to supporting individuals and
@@ -218,74 +218,99 @@ export const Banner = () => {
               measurable value over time.
             </p>
 
-            {/* Content Grid */}
-            <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-              <div className="grid gap-4">
-                {/* Vision & Mission */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Vision */}
-                  <div className="group relative border-2 border-[#F47C20] p-2 rounded-3xl transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl hover:bg-white">
-                    <h3 className="text-xl text-center font-semibold text-[#2B2B2B] mb-2">
-                      Our Vision
-                    </h3>
+            <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 sticky">
+              <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 items-start">
+                {/* ================= LEFT SIDE ================= */}
+                <div className="space-y-8">
+                  {/* Vision + Mission */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Vision */}
+                    <div className="border-2 border-[#F47C20] rounded-3xl p-4 bg-white h-auto flex flex-col">
+                      <h3 className="text-xl text-center font-semibold text-[#2B2B2B] mb-3">
+                        Our Vision
+                      </h3>
 
-                    <button className="mx-auto flex items-center gap-1 text-sm font-semibold text-[#F47C20] transition-all duration-300 group-hover:gap-2 group-hover:underline">
-                      Read
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                      </span>
-                    </button>
+                      <div className="bg-[#F4F6F8] p-4 rounded-2xl text-sm md:text-base text-[#374151] leading-relaxed flex-1 overflow-y-auto">
+                        <p>
+                          Our vision is to build a financially stronger
+                          community by bridging the gap between financial needs
+                          and the right solutions
+                          {!visionOpen && (
+                            <span
+                              onClick={() => setVisionOpen(true)}
+                              className="text-[#F47C20] font-semibold cursor-pointer"
+                            >
+                              Read...
+                            </span>
+                          )}
+                        </p>
 
-                    <p className="mt-4 text-sm md:text-base text-[#374151] leading-relaxed bg-[#F4F6F8] p-4 rounded-xl opacity-0 translate-y-2 max-h-0 overflow-hidden transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-[500px]">
-                      Our vision is to build a financially stronger community by
-                      bridging the gap between financial needs and the right
-                      solutions. We strive to bring transparency, ethical
-                      practices, and modern financial advisory to every client
-                      we serve, enabling sustainable growth for individuals and
-                      enterprises alike.
-                      <br />
-                      <br />
-                      Through trust-driven relationships and value-based
-                      services, we aim to contribute to long-term economic
-                      well-being.
-                    </p>
+                        {visionOpen && (
+                          <p className="mt-3">
+                            We strive to bring transparency, ethical practices,
+                            and modern financial advisory to every client we
+                            serve, enabling sustainable growth for individuals
+                            and enterprises alike{" "}
+                            <span
+                              onClick={() => setVisionOpen(false)}
+                              className="text-[#F47C20] font-semibold cursor-pointer"
+                            >
+                              Hide
+                            </span>
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Mission */}
+                    <div className="border-2 border-[#F47C20] rounded-3xl p-4 bg-white h-auto flex flex-col">
+                      <h3 className="text-xl text-center font-semibold text-[#2B2B2B] mb-3">
+                        Our Mission
+                      </h3>
+
+                      <div className="bg-[#F4F6F8] p-4 rounded-2xl text-sm md:text-base text-[#374151] leading-relaxed flex-1 overflow-y-auto">
+                        <p>
+                          Our mission is to empower our clients with the right
+                          financial tools, knowledge, and access to
+                          opportunities{" "}
+                          {!missionOpen && (
+                            <span
+                              onClick={() => setMissionOpen(true)}
+                              className="text-[#F47C20] font-semibold cursor-pointer"
+                            >
+                              Read...
+                            </span>
+                          )}
+                        </p>
+
+                        {missionOpen && (
+                          <p className="mt-3">
+                            By combining professional expertise with a human
+                            approach, we simplify complex financial processes
+                            and create meaningful financial progress{" "}
+                            <span
+                              onClick={() => setMissionOpen(false)}
+                              className="text-[#F47C20] font-semibold cursor-pointer"
+                            >
+                              Hide
+                            </span>
+                          </p>
+                        )}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Mission */}
-                  <div className="group relative border-2 border-[#F47C20] p-2 rounded-3xl transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl hover:bg-white">
-                    <h3 className="text-lg md:text-xl text-center font-semibold text-[#2B2B2B] mb-3">
-                      Our Mission
-                    </h3>
-
-                    <button className="mx-auto flex items-center gap-1 text-sm font-semibold text-[#F47C20] transition-all duration-300 group-hover:gap-2 group-hover:underline">
-                      Read
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                      </span>
-                    </button>
-
-                    <p className="mt-4 text-sm md:text-base text-[#374151] leading-relaxed bg-[#F4F6F8] p-4 rounded-xl opacity-0 translate-y-2 max-h-0 overflow-hidden transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-[400px]">
-                      Our mission is to empower our clients with the right
-                      financial tools, knowledge, and access to opportunities
-                      that support growth and security. By combining
-                      professional expertise with a human approach, we simplify
-                      complex financial processes and create meaningful
-                      financial progress.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Key Person */}
-                <div className="group">
-                  <div className="max-w-7xl mx-auto border-4 border-[#1E6FB8] rounded-2xl px-1 lg:px-2 py-1 lg:py-2">
-                    <div className="flex flex-col lg:flex-row justify-center gap-5 py-5">
-                      <div className="bg-gradient-to-r from-[#7FA9E6] via-[#C59A85] to-[#F47C20] rounded-2xl p-6">
-                        <h2 className="text-2xl font-semibold text-black underline mt-2">
+                  {/* ================= KEY PERSON ================= */}
+                  <div className="border-4 border-[#1E6FB8] rounded-2xl p-4 bg-white">
+                    {/* Header */}
+                    <div className="flex flex-col md:flex-row justify-center gap-5 py-5">
+                      <div className="bg-gradient-to-r from-[#7FA9E6] via-[#C59A85] to-[#F47C20] rounded-2xl p-6 ">
+                        <h2 className="text-2xl font-semibold text-black underline">
                           Key Person
                         </h2>
                       </div>
 
-                      <div className="pt-5 text-center lg:text-left">
+                      <div className="pt-3 text-center md:text-left">
                         <h3 className="text-xl text-[#F47C20] font-semibold">
                           CHANDRA SENA REDDY
                         </h3>
@@ -298,72 +323,103 @@ export const Banner = () => {
                       </div>
                     </div>
 
-                    <p className="text-sm md:text-base text-[#2B2B2B] leading-relaxed md:leading-loose text-justify p-5 md:px-6 rounded-xl bg-white/70 opacity-0 translate-y-3 max-h-0 overflow-hidden transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-[1400px]">
-                      I am honored to welcome you to our organization’s website.
-                      As the
-                      <strong className="font-semibold">
-                        Managing Partner of Chakra Financial Services,
-                      </strong>
-                      it is both a privilege and a pleasure to convey my
-                      thoughts and aspirations through this digital platform.
-                      Since our inception, Chakra Financial Servcies has been
-                      dedicated to a vision of excellence, innovation, and
-                      service to our customers, employees, and communities. We
-                      have come a long way, achieved significant milestones, and
-                      weathered various challenges. Throughout this journey, one
-                      constant has remained unchanged – our unwavering
-                      commitment to delivering value and making a positive
-                      impact.
-                      <br />
-                      <br />
-                      Our success story is a testament to the dedication and
-                      hard work of our talented team, the trust and support of
-                      our customers, and the resilience of our organization. As
-                      we embrace the digital age and navigate an ever-evolving
-                      business landscape, we remain steadfast in our core values
-                      and principles. In an era of rapid change, we understand
-                      the importance of adaptability and staying ahead of the
-                      curve. Therefore, we continue to invest in research and
-                      development, embrace sustainable practices, and foster a
-                      culture of continuous learning and growth.
-                      <br />
-                      <br />
-                      At Chakra Financial Servcies, we are not just in the
-                      business of Financial Services, but we are also committed
-                      to being responsible corporate citizens. We strive to make
-                      a positive social and environmental impact through our
-                      initiatives and partnerships. This website serves as a
-                      window into our world, where you can explore our
-                      products/services, learn about our history and values, and
-                      stay updated on our latest endeavors. We value your
-                      feedback and look forward to engaging with you through
-                      this platform. As we move forward, I invite you to join us
-                      on this exciting journey. Together, we can shape a
-                      brighter future and create lasting value for all
-                      stakeholders.
-                      <span className="block mt-6 text-center text-base font-medium text-[#2B2B2B]">
-                        Thank you for your trust and support.
-                        <br />
-                        <span className="italic">Warm regards,</span>
-                        <br />
-                        <strong>Chakra Financial Services</strong>
-                        <br />
-                        <span className="text-sm opacity-80">[Data Form]</span>
-                      </span>
-                    </p>
+                    {/* Content */}
+                    <div className="bg-white/70 rounded-xl px-5 md:px-6 py-4">
+                      <p className="bg-[#F4F6F8] text-sm md:text-base text-[#2B2B2B] leading-relaxed flex-1 overflow-y-auto h-auto flex flex-col">
+                        I am honored to welcome you to our organization’s
+                        website. As the
+                        <strong className="font-semibold">
+                          Managing Partner of Chakra Financial Services,
+                        </strong>
+                        it is both a privilege and a pleasure to convey my
+                        thoughts and aspirations through this digital platform.
+                        {!open && (
+                          <button
+                            onClick={() => setOpen(true)}
+                            className="mt-3 text-[#F47C20] font-semibold hover:underline"
+                          >
+                            Read more...
+                          </button>
+                        )}
+                        {open && (
+                          <div className="mt-4 space-y-4 text-sm md:text-base text-[#2B2B2B] leading-relaxed">
+                            <p>
+                              Since our inception, Chakra Financial Services has
+                              been dedicated to a vision of excellence,
+                              innovation, and service to our customers,
+                              employees, and communities. Throughout this
+                              journey, one constant has remained unchanged – our
+                              unwavering commitment to delivering value and
+                              making a positive impact.
+                            </p>
+
+                            <p>
+                              Our success story is a testament to the dedication
+                              and hard work of our talented team, the trust and
+                              support of our customers, and the resilience of
+                              our organization. As we embrace the digital age
+                              and navigate an ever-evolving business landscape,
+                              we remain steadfast in our core values and
+                              principles. In an era of rapid change, we
+                              understand the importance of adaptability and
+                              staying ahead of the curve. Therefore, we continue
+                              to invest in research and development, embrace
+                              sustainable practices, and foster a culture of
+                              continuous learning and growth.
+                            </p>
+
+                            <p>
+                              At Chakra Financial Servcies, we are not just in
+                              the business of Financial Services, but we are
+                              also committed to being responsible corporate
+                              citizens. We strive to make a positive social and
+                              environmental impact through our initiatives and
+                              partnerships. This website serves as a window into
+                              our world, where you can explore our
+                              products/services, learn about our history and
+                              values, and stay updated on our latest endeavors.
+                              We value your feedback and look forward to
+                              engaging with you through this platform. As we
+                              move forward, I invite you to join us on this
+                              exciting journey. Together, we can shape a
+                              brighter future and create lasting value for all
+                              stakeholders.
+                            </p>
+
+                            <div className="mt-6 text-center">
+                              <p className="font-medium">
+                                Thank you for your trust and support.
+                              </p>
+                              <p className="italic mt-1">Warm regards,</p>
+                              <p className="font-semibold">
+                                Chakra Financial Services
+                              </p>
+                              <p className="text-sm opacity-70">[Data Form]</p>
+                            </div>
+
+                            <button
+                              onClick={() => setOpen(false)}
+                              className="mt-4 text-[#F47C20] font-semibold hover:underline"
+                            >
+                              Hide
+                            </button>
+                          </div>
+                        )}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Image */}
-              <div className="flex justify-center md:justify-end">
-                <img
-                  className="w-full  rounded-3xl object-contain transition transform hover:scale-[1.03]"
-                  src="https://chakrafin.com/images/aboutusimg3.webp"
-                  alt="About Chakra Financial Services"
-                />
+                {/* ================= RIGHT IMAGE ================= */}
+                <div className="h-[420px] sticky top-24">
+                  <img
+                    src="https://chakrafin.com/images/aboutusimg3.webp"
+                    alt="About Chakra Financial Services"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
-            </div>
+            </section>
           </div>
         </section>
       </div>
