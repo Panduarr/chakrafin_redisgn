@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "@/app/components/shared/Navbar";
+import Footer from "@/app/components/shared/Footer";
 
 function Contact() {
   return (
@@ -8,6 +9,7 @@ function Contact() {
       <Banner />
       <ConnectSection />
       <EnquiryForm />
+      <Footer />
     </div>
   );
 }
@@ -29,6 +31,7 @@ export const Banner = () => {
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaGlobeAfrica } from "react-icons/fa";
+
 
 export const ConnectSection = () => {
   return (
@@ -140,7 +143,7 @@ export const ConnectSection = () => {
 // Enquiry Form
 export const EnquiryForm = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-18 py-16">
+    <section className="max-w-7xl mx-auto px-4 md:px-18 pt-16">
       {/* Heading */}
       <h2 className="text-xl md:text-2xl font-semibold text-center text-[#F47C20] mb-12">
         Enquiry Form
