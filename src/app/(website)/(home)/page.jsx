@@ -9,6 +9,7 @@ function Home() {
       <Navbar active="home" />
       <Banner />
       <HowItWorks />
+      <ServicesCarousel />
       <Footer />
     </div>
   );
@@ -61,7 +62,7 @@ export const Banner = () => {
 
   return (
     <>
-      <div className="relative w-full h-[65vh] overflow-hidden max-w-7xl mx-auto">
+      <div className="relative w-full h-[70vh] overflow-hidden max-w-7xl mx-auto ">
         {/* Images */}
         {banners.map((banner, i) => (
           <div
@@ -73,7 +74,7 @@ export const Banner = () => {
             <img
               src={banner.image}
               alt={banner.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-fill"
             />
           </div>
         ))}
@@ -442,7 +443,6 @@ export const Banner = () => {
   );
 };
 
-
 const steps = [
   {
     id: 1,
@@ -513,6 +513,86 @@ export const HowItWorks = () => {
               </p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+// our services carousel
+import Image from "next/image";
+const services = [
+  { id: 1, title: "Bank 1", image: "/bank1.png" },
+  { id: 2, title: "Bank 2", image: "/bank2.png" },
+  { id: 3, title: "Bank 3", image: "/bank3.png" },
+  { id: 4, title: "Bank 4", image: "/bank4.png" },
+  { id: 5, title: "Bank 5", image: "/bank5.png" },
+  { id: 6, title: "Bank 6", image: "/bank6.png" },
+  { id: 7, title: "Bank 7", image: "/bank7.png" },
+  { id: 8, title: "Bank 8", image: "/bank8.png" },
+  { id: 9, title: "Bank 9", image: "/bank1.png" },
+  { id: 10, title: "Bank 10", image: "/bank2.png" },
+  { id: 11, title: "Bank 11", image: "/bank3.png" },
+  { id: 12, title: "Bank 12", image: "/bank4.png" },
+  { id: 13, title: "Bank 13", image: "/bank5.png" },
+  { id: 14, title: "Bank 14", image: "/bank6.png" },
+  { id: 15, title: "Bank 15", image: "/bank7.png" },
+  { id: 16, title: "Bank 16", image: "/bank8.png" },
+];
+/* ================= COMPONENT ================= */
+export const ServicesCarousel = () => {
+  const visibleCards = 4;
+  const [index, setIndex] = useState(0);
+
+  /* 🔁 AUTO SCROLL */
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => {
+        const maxIndex = services.length - visibleCards;
+        return prev >= maxIndex ? 0 : prev + 1;
+      });
+    }, 3000); // speed
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="py-16 bg-white px-18">
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+        <h2 className="text-center text-3xl font-bold text-[#1E6FB8] mb-12">
+          OUR PARTNER BANKS
+        </h2>
+
+        {/* Carousel */}
+        <div className="overflow-hidden">
+          <div
+            className="flex gap-8 transition-transform duration-700 ease-in-out"
+            style={{
+              transform: `translateX(-${index * (100 / visibleCards)}%)`,
+            }}
+          >
+            {services.map((service) => (
+              <div
+                key={service.id}
+                className="min-w-[100%] sm:min-w-[50%] md:min-w-[33.333%] lg:min-w-[25%] px-10"
+              >
+                <div className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center hover:shadow-lg transition">
+                  {/* LOGO (30–40px only) */}
+                  <div className="flex items-center justify-center h-20 ">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={100}
+                      height={80}
+                      className=" w-full h-auto object-contain grayscale hover:grayscale-0 transition"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
