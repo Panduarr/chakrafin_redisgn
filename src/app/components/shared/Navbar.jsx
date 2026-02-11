@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoMailSharp } from "react-icons/io5";
@@ -12,7 +12,8 @@ function Navbar({ active = "home" }) {
   return (
     <>
       {/* Top Bar (Desktop Only) */}
-      <div className="hidden md:flex bg-white justify-between px-10 py-1 text-sm max-w-7xl mx-auto border-b-2 border-[#1E6FB8]">
+      <div className="max-w-7xl mx-auto">
+      <div className="lg:fixed lg:w-full lg:z-5 hidden  md:flex bg-white justify-between px-10 py-1 text-sm max-w-7xl mx-auto border-b-2 border-[#1E6FB8]  ">
         <div className="flex gap-4 text-[#F47C20]">
           <a
             className="px-2  border-x border-black/40 hover:opacity-80"
@@ -24,7 +25,7 @@ function Navbar({ active = "home" }) {
             className="px-2 border-x border-black/40 hover:opacity-80"
             href="https://x.com/"
           >
-            <FaTwitter />
+            <FaInstagram />
           </a>
           <a
             className="px-2 border-x border-black/40 hover:opacity-80"
@@ -34,13 +35,13 @@ function Navbar({ active = "home" }) {
           </a>
         </div>
 
-        <div className="flex gap-4 text-[#1E6FB8]">
+        <div className="flex gap-4 text-[#1E6FB8] ">
           <a
             className="px-2 border-x border-black/40 hover:opacity-80"
             href="https://web.whatsapp.com/"
           >
             <span className="flex items-center">
-              <FaWhatsapp /> +91 90000 00000
+              <FaWhatsapp /> +91 93920 37809
             </span>
           </a>
           <a
@@ -48,14 +49,15 @@ function Navbar({ active = "home" }) {
             href="https://mail.google.com/"
           >
             <span className="flex items-center">
-              <IoMailSharp /> contact@chakrafin.com
+              <IoMailSharp /> info@chakrafin.com
             </span>
           </a>
         </div>
       </div>
+      </div>
 
       {/* Main Navbar */}
-      <div className="bg-white shadow-sm">
+      <div className="bg-white shadow-sm lg:fixed lg:w-full lg:z-2 mt-7">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-1">
           {/* Logo */}
           <img
