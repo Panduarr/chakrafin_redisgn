@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 function Home() {
   return (
-    <div>
+    <div className="bg-[#F3F4F6]">
       <Navbar active="home" />
       <Banner />
       <MissionVisionKeyPerson />
@@ -64,7 +64,7 @@ export const Banner = () => {
   return (
     <>
       {/* Banner */}
-      <div className="relative w-full min-h-[60vh] lg:min-h-[65vh]  top-24  overflow-hidden max-w-7xl mx-auto">
+      <div className="relative w-full min-h-[60vh] lg:min-h-[65vh]  lg:top-24  overflow-hidden max-w-7xl mx-auto">
         {/* ================= IMAGES ================= */}
         {banners.map((banner, i) => (
           <div
@@ -157,13 +157,13 @@ export const Banner = () => {
       </div>
 
       {/* About */}
-      <div className="max-w-7xl mx-auto pt-24 ">
-        <section id="about" className="bg-[#F4F6F8] py-8">
+      <div className="max-w-7xl mx-auto lg:pt-24 ">
+        <section id="about" className="bg-[#F4F6F8] pt-4">
           <div className="max-w-7xl mx-auto px-4 md:px-12">
             <h2 className="text-xl md:text-3xl text-center font-bold text-[#2B2B2B] mb-4">
               About Us
             </h2>
-            <p className="text-sm md:text-base text-justify text-[#374151] leading-relaxed mb-10 px-8 lg:px-12">
+            <p className="text-sm md:text-base text-justify text-[#374151] leading-relaxed  px-8 lg:px-12">
               <strong>Chakra Financial Services</strong> is a client-focused
               financial consultancy dedicated to supporting individuals and
               businesses with practical, transparent, and result-oriented
@@ -194,16 +194,16 @@ export const MissionVisionKeyPerson = () => {
   const toggle = (id) => setActive(active === id ? null : id);
 
   return (
-    <section className="bg-[#F3F4F6] py-16 md:py-24 overflow-hidden px-5 lg:px-18">
+    <section className="bg-[#F3F4F6] pb-6 md:py-10 overflow-hidden px-5 lg:px-18  ">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-15">
           {/* ================= LEFT ================= */}
-          <div className="space-y-20">
+          <div className="space-y-10">
             {/* ================= VISION ================= */}
             <div className="relative pl-20">
               {/* BLOCK RAIL (reserved space) */}
               <div
-                className={`hidden lg:block absolute left-0 top-2 z-20
+                className={`hidden lg:block absolute left-0 top-2 
                 transition-transform duration-500 ease-in-out
                 ${active === 1 ? "translate-y-40" : "translate-y-0"}`}
               >
@@ -212,7 +212,7 @@ export const MissionVisionKeyPerson = () => {
               </div>
 
               {/* CONTENT */}
-              <div className="relative z-10 bg-[#F47C20] text-white p-8 md:p-12 max-w-lg">
+              <div className="relative  bg-[#F47C20] text-white p-8 md:p-12 max-w-lg">
                 <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
                   VISION
                 </h2>
@@ -254,7 +254,7 @@ export const MissionVisionKeyPerson = () => {
             <div className="relative pr-20">
               {/* BLOCK RAIL */}
               <div
-                className={`hidden lg:block absolute right-0 top-5 z-20
+                className={`hidden lg:block absolute right-0 top-5 
                 transition-transform duration-500 ease-in-out
                 ${active === 2 ? "translate-y-30" : "translate-y-0"}`}
               >
@@ -263,7 +263,7 @@ export const MissionVisionKeyPerson = () => {
               </div>
 
               {/* CONTENT */}
-              <div className="relative z-10 bg-[#1E6FB8] text-white p-8 md:p-12 max-w-lg">
+              <div className="relative  bg-[#1E6FB8] text-white p-8 md:p-12 max-w-lg">
                 <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
                   MISSION
                 </h2>
@@ -303,7 +303,7 @@ export const MissionVisionKeyPerson = () => {
           <div className="relative pl-20">
             {/* BLOCK RAIL */}
             <div
-              className={`hidden lg:block absolute left-0 top-10 z-20
+              className={`hidden lg:block absolute left-0 top-10 
               transition-transform duration-500 ease-in-out
               ${active === 3 ? "translate-y-100" : "translate-y-0"}`}
             >
@@ -313,7 +313,7 @@ export const MissionVisionKeyPerson = () => {
 
             {/* KEY PERSON */}
             <div
-              className="relative z-10 p-8 md:p-12 max-w-md
+              className="relative  p-8 md:p-12 max-w-md
               bg-gradient-to-br from-[#F47C20] via-white to-[#1E6FB8]"
             >
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black">
@@ -416,10 +416,10 @@ export const HowItWorks = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <section className="bg-gradient-to-br from-[#4b0bbf] via-[#1E6FB8] to-[#3a0a9e] px-6 py-20 rounded-4xl   mx-8 md:mx-18">
+      <section className="bg-[#0a5aa5] opacity-70 px-5 lg:px-18 py-10 ">
         <div className="max-w-7xl mx-auto px-6 text-center text-white">
           {/* Small label */}
-          <p className="uppercase font-semibold tracking-widest text-[#F47C20] text-xl opacity-80 mb-3">
+          <p className="uppercase font-semibold tracking-widest  text-3xl opacity-80 mb-3">
             How it works
           </p>
 
@@ -528,6 +528,23 @@ const services = [
   { id: 14, title: "Bank 14", image: "/bank6.png" },
   { id: 15, title: "Bank 15", image: "/bank7.png" },
   { id: 16, title: "Bank 16", image: "/bank8.png" },
+  { id: 17, title: "Bank 1", image: "/bank1.png" },
+  { id: 18, title: "Bank 2", image: "/bank2.png" },
+  { id: 19, title: "Bank 3", image: "/bank3.png" },
+  { id: 20, title: "Bank 4", image: "/bank4.png" },
+  { id: 21, title: "Bank 5", image: "/bank5.png" },
+  { id: 22, title: "Bank 6", image: "/bank6.png" },
+  { id: 23, title: "Bank 7", image: "/bank7.png" },
+  { id: 24, title: "Bank 8", image: "/bank8.png" },
+  { id: 25, title: "Bank 9", image: "/bank1.png" },
+  { id: 26, title: "Bank 10", image: "/bank2.png" },
+  { id: 27, title: "Bank 11", image: "/bank3.png" },
+  { id: 28, title: "Bank 12", image: "/bank4.png" },
+  { id: 29, title: "Bank 13", image: "/bank5.png" },
+  { id: 30, title: "Bank 14", image: "/bank6.png" },
+  { id: 31, title: "Bank 15", image: "/bank7.png" },
+  { id: 32, title: "Bank 16", image: "/bank8.png" },
+  
 ];
 /* ================= COMPONENT ================= */
 export const ServicesCarousel = () => {
@@ -547,10 +564,10 @@ export const ServicesCarousel = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-white px-18">
+    <section className="py-6 bg-white px-18">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="text-center text-3xl font-bold text-[#1E6FB8] mb-12">
+        <h2 className="text-center text-3xl font-bold text-[#1E6FB8] mb-10">
           Our Beloved Clients
         </h2>
 
@@ -565,16 +582,16 @@ export const ServicesCarousel = () => {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="min-w-[100%] sm:min-w-[50%] md:min-w-[33.333%] lg:min-w-[25%] px-2"
+                className=" min-w-[100%]  sm:min-w-[50%] md:min-w-[33.333%] lg:min-w-[16%] "
               >
-                <div className="flex flex-col items-center ">
+                <div className="flex flex-col items-center  ">
                   {/* LOGO (30–40px only) */}
-                  <div className="flex items-center justify-center h-20 ">
+                  <div className="flex items-center justify-center  h-20 ">
                     <Image
                       src={service.image}
                       alt={service.title}
-                      width={100}
-                      height={120}
+                      width={120}
+                      height={160}
                       className=" w-full h-auto object-contain "
                     />
                   </div>

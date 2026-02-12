@@ -23,7 +23,7 @@ function Navbar({ active = "home" }) {
           </a>
           <a
             className="px-2 border-x border-black/40 hover:opacity-80"
-            href="https://x.com/"
+            href="https://www.instagram.com/"
           >
             <FaInstagram />
           </a>
