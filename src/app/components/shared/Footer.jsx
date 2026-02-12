@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 
 function Footer() {
   return (
@@ -9,7 +9,9 @@ function Footer() {
 }
 
 export default Footer;
-
+import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   FaFacebookF,
   FaTwitter,
@@ -20,17 +22,42 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 
-export const FooterComponent = ({ active = "home" }) => {
+function FooterComponent({ active = "home" }) {
+  const pathname = usePathname();
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const updateHash = () => setHash(window.location.hash);
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    return () => window.removeEventListener("hashchange", updateHash);
+  }, []);
+
+  const links = [
+    { label: "Home", href: "/", match: "/" },
+    { label: "About Us", href: "/#about", match: "#about" },
+    { label: "Services", href: "/services", match: "/services" },
+    { label: "Contact Us", href: "/contact", match: "/contact" },
+    { label: "Get Instant Loan", href: "/instantloan", match: "/instantloan" },
+  ];
+
+  const isActive = (item) => {
+    if (item.match.startsWith("#")) {
+      return pathname === "/" && hash === item.match;
+    }
+    return pathname === item.match;
+  };
+
   return (
     <footer className="bg-[#063f6d] text-white pt-6 mt-6">
-      <div className="max-w-7xl mx-auto px-18">
+      <div className="max-w-7xl mx-auto px-6 lg:px-18">
         {/* TOP GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12">
           {/* LOGO + NAME */}
           <div>
             <div className="bg-white rounded-xl p-4 inline-block">
               <img
-                src="https://chakrafin.com/images/logo.png" // replace path if needed
+                src="https://chakrafin.com/images/logo.png"
                 alt="Chakra Financial Services"
                 className="h-16 object-contain"
               />
@@ -42,31 +69,25 @@ export const FooterComponent = ({ active = "home" }) => {
           </div>
 
           {/* QUICK LINKS */}
-          <div className="px-5">
+
+          <div>
             <h4 className="text-xl font-semibold text-[#F47C20] mb-4">
               Quick Links
             </h4>
-            <ul className="space-y-3 text-sm text-white/90">
-              {[
-                { key: "home", label: "Home", link: "/" },
-                { key: "about", label: "About Us", link: "#about" },
-                { key: "services", label: "Services", link: "/services" },
-                { key: "contact", label: "Contact Us", link: "/contact" },
-                {
-                  key: "instantloan",
-                  label: "Get Instant Loan",
-                  link: "/instantloan",
-                },
-              ].map((item) => (
-                <li
-                  key={item.key}
-                  className={` transition ${
-                    active === item.key
-                      ? "text-[#1E6FB8] underline hover:text-[#F47C20]"
-                      : "text-white"
-                  }`}
-                >
-                  <a href={item.link}>{item.label}</a>
+
+            <ul className="space-y-3 text-sm">
+              {links.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`transition-all duration-300 ${
+                      isActive(item)
+                        ? "text-[#F47C20] underline"
+                        : "text-white hover:text-[#F47C20] hover:underline"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -127,7 +148,7 @@ export const FooterComponent = ({ active = "home" }) => {
           {/* BOTTOM CREDIT */}
           <div className=" text-center pt-4 text-sm border-t border-white/30">
             <span className="flex justify-center gap-2">
-              Design & Developed by 
+              Design & Developed by
               <a
                 className="underline font-semibold cursor-pointer"
                 href="https://www.ssdtechinfrasolutions.in/"
@@ -154,7 +175,7 @@ export const FooterComponent = ({ active = "home" }) => {
       </a>
     </footer>
   );
-};
+}
 
 /* SOCIAL ICON */
 function SocialIcon({ icon }) {

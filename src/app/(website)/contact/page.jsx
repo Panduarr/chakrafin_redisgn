@@ -9,7 +9,7 @@ function Contact() {
       <Banner />
       <ConnectSection />
       <EnquiryForm />
-      <Footer />
+      <Footer active="contact"/>
     </div>
   );
 }

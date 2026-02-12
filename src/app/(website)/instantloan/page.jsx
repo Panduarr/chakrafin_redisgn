@@ -7,7 +7,7 @@ function InstanLoan() {
     <div>
       <Navbar active="instantloan" />
       Instant Loan
-      <Footer />
+      <Footer active="instantloan"/>
     </div>
   );
 }

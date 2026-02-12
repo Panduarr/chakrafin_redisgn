@@ -8,7 +8,7 @@ function Services() {
     <div>
       <Navbar active="services" />
       <OurServices />
-      <Footer />
+      <Footer active="services"/>
     </div>
   );
 }

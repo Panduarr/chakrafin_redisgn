@@ -11,7 +11,7 @@ function Home() {
       <MissionVisionKeyPerson />
       <HowItWorks />
       <ServicesCarousel />
-      <Footer />
+      <Footer active="home"/>
     </div>
   );
 }
@@ -157,8 +157,8 @@ export const Banner = () => {
       </div>
 
       {/* About */}
-      <div className="max-w-7xl mx-auto lg:pt-24 ">
-        <section id="about" className="bg-[#F4F6F8] pt-4">
+      <div className="">
+        <section id="about" className="bg-[#F4F6F8] max-w-7xl mx-auto lg:pt-28 ">
           <div className="max-w-7xl mx-auto px-4 md:px-12">
             <h2 className="text-xl md:text-3xl text-center font-bold text-[#2B2B2B] mb-4">
               About Us
