@@ -90,7 +90,7 @@ function Navbar() {
           />
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex gap-x-4 text-base font-medium">
+          <ul className="hidden lg:flex lg:items-center gap-x-4 text-base font-medium">
             {navLinks.map((item) => (
               <li
                 key={item.label}
@@ -103,7 +103,7 @@ function Navbar() {
             <li>
               <Link
                 href="/instantloan"
-                className="px-5 py-2 rounded-full text-sm font-semibold bg-[#F47C20] text-white hover:scale-[1.03] transition"
+                className="px-5 py-3 rounded-full text-sm font-semibold bg-[#F47C20] text-white hover:scale-[1.03] transition"
               >
                 Get Instant Loan
               </Link>
