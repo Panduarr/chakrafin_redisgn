@@ -1,14 +1,4 @@
 "use client";
-
-function Footer() {
-  return (
-    <div>
-      <FooterComponent />
-    </div>
-  );
-}
-
-export default Footer;
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -22,29 +12,47 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 
-function FooterComponent({ active = "home" }) {
+function Footer({ active = "home" }) {
   const pathname = usePathname();
   const [hash, setHash] = useState("");
+    const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const updateHash = () => setHash(window.location.hash);
-    updateHash();
-    window.addEventListener("hashchange", updateHash);
-    return () => window.removeEventListener("hashchange", updateHash);
-  }, []);
+      setMounted(true);
+    }, []);
+  
+    useEffect(() => {
+      if (!mounted) return;
+  
+      const update = () => setHash(window.location.hash || "");
+      update();
+      window.addEventListener("hashchange", update);
+      return () => window.removeEventListener("hashchange", update);
+    }, [mounted]);
+  
+    if (!mounted) return null;
 
   const links = [
-    { label: "Home", href: "/", match: "/" },
+    { label: "Home", href: "/", match: "home" },
     { label: "About Us", href: "/#about", match: "#about" },
-    { label: "Services", href: "/services", match: "/services" },
-    { label: "Contact Us", href: "/contact", match: "/contact" },
+    { label: "Services", href: "/#services", match: "#services" },
+    { label: "Clients", href: "/#clients", match: "#clients" },
+    { label: "Contact Us", href: "/#contact", match: "#contact" },
     { label: "Get Instant Loan", href: "/instantloan", match: "/instantloan" },
   ];
 
   const isActive = (item) => {
+    // Home active only when no hash
+    if (item.match === "home") {
+      return pathname === "/" && hash === "";
+    }
+
+    // Section links
     if (item.match.startsWith("#")) {
       return pathname === "/" && hash === item.match;
     }
+
+    // Normal routes
     return pathname === item.match;
   };
 
@@ -80,6 +88,9 @@ function FooterComponent({ active = "home" }) {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    onClick={() =>
+                      setHash(item.match.startsWith("#") ? item.match : "")
+                    }
                     className={`transition-all duration-300 ${
                       isActive(item)
                         ? "text-[#F47C20] underline"
@@ -176,6 +187,7 @@ function FooterComponent({ active = "home" }) {
     </footer>
   );
 }
+export default Footer;
 
 /* SOCIAL ICON */
 function SocialIcon({ icon }) {

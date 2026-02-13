@@ -10,25 +10,41 @@ import { IoMailSharp } from "react-icons/io5";
 
 function Navbar() {
   const pathname = usePathname();
-  const [hash, setHash] = useState("");
   const [open, setOpen] = useState(false);
+  const [hash, setHash] = useState("");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const updateHash = () => setHash(window.location.hash);
-    updateHash();
-    window.addEventListener("hashchange", updateHash);
-    return () => window.removeEventListener("hashchange", updateHash);
+    setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const update = () => setHash(window.location.hash || "");
+    update();
+    window.addEventListener("hashchange", update);
+    return () => window.removeEventListener("hashchange", update);
+  }, [mounted]);
+
+  if (!mounted) return null;
+
   const navLinks = [
-    { label: "Home", href: "/", match: "/" },
+    { label: "Home", href: "/", match: "home" },
     { label: "About Us", href: "/#about", match: "#about" },
-    { label: "Services", href: "/services", match: "/services" },
-    { label: "Contact Us", href: "/contact", match: "/contact" },
+    { label: "Services", href: "/#services", match: "#services" },
+    { label: "Clients", href: "/#clients", match: "#clients" },
+    { label: "Contact Us", href: "/#contact", match: "#contact" },
   ];
   const isActive = (item) => {
+    if (item.match === "home") {
+      return pathname === "/" && hash === "";
+    }
+
     if (item.match.startsWith("#")) {
       return pathname === "/" && hash === item.match;
     }
+
     return pathname === item.match;
   };
 
@@ -80,7 +96,7 @@ function Navbar() {
       </div>
 
       {/* Main Navbar */}
-      <div className="bg-white shadow-sm lg:fixed lg:w-full lg:z-2 lg:mt-7">
+      <div className="bg-white shadow-sm w-full fixed lg:w-full z-2 lg:mt-7">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-1">
           {/* Logo */}
           <img
@@ -96,7 +112,14 @@ function Navbar() {
                 key={item.label}
                 className={`px-4 py-2 rounded-full transition hover:scale-[1.03] ${isActive(item) ? "text-[#1E6FB8] underline" : "text-gray-700 hover:text-[#F47C20]"}`}
               >
-                <Link href={item.href}>{item.label}</Link>
+                <Link
+                  href={item.href}
+                  onClick={() =>
+                    setHash(item.match.startsWith("#") ? item.match : "")
+                  }
+                >
+                  {item.label}
+                </Link>
               </li>
             ))}
 
@@ -118,13 +141,16 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="md:hidden bg-white border-t border-gray-200 fixed">
             <ul className="flex flex-col gap-2 p-4 text-base font-medium">
               {navLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setHash(item.match.startsWith("#") ? item.match : "");
+                      setOpen(false);
+                    }}
                     className={`block px-4 py-2 rounded-lg ${
                       isActive(item)
                         ? "bg-[#1E6FB8] text-white"
