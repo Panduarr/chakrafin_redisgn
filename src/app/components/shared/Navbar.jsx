@@ -94,12 +94,7 @@ function Navbar() {
             {navLinks.map((item) => (
               <li
                 key={item.label}
-                className={`px-4 py-2 rounded-full transition hover:scale-[1.03]
-        ${
-          isActive(item)
-            ? "text-[#1E6FB8] underline"
-            : "text-gray-700 hover:text-[#F47C20]"
-        }`}
+                className={`px-4 py-2 rounded-full transition hover:scale-[1.03] ${isActive(item) ? "text-[#1E6FB8] underline" : "text-gray-700 hover:text-[#F47C20]"}`}
               >
                 <Link href={item.href}>{item.label}</Link>
               </li>
