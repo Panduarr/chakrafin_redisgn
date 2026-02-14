@@ -56,13 +56,13 @@ function Navbar() {
           <div className="flex gap-4 text-[#F47C20]">
             <a
               className="px-2  border-x border-black/40 hover:opacity-80"
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/people/Chakra-Financial-Services/61587570840796/"
             >
               <FaFacebookF />
             </a>
             <a
               className="px-2 border-x border-black/40 hover:opacity-80"
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/chakrafinancialservices?igsh=N2Y0ajIwYjRyY2h6"
             >
               <FaInstagram />
             </a>

@@ -15,22 +15,22 @@ import {
 function Footer({ active = "home" }) {
   const pathname = usePathname();
   const [hash, setHash] = useState("");
-    const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-      setMounted(true);
-    }, []);
-  
-    useEffect(() => {
-      if (!mounted) return;
-  
-      const update = () => setHash(window.location.hash || "");
-      update();
-      window.addEventListener("hashchange", update);
-      return () => window.removeEventListener("hashchange", update);
-    }, [mounted]);
-  
-    if (!mounted) return null;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const update = () => setHash(window.location.hash || "");
+    update();
+    window.addEventListener("hashchange", update);
+    return () => window.removeEventListener("hashchange", update);
+  }, [mounted]);
+
+  if (!mounted) return null;
 
   const links = [
     { label: "Home", href: "/", match: "home" },
@@ -114,12 +114,31 @@ function Footer({ active = "home" }) {
               Chakra Finance helps you explore a wide range of financial
               solutions tailored to your needs.
             </p>
-
             <div className="flex gap-4 mt-6">
-              <SocialIcon icon={<FaFacebookF />} />
-              <SocialIcon icon={<FaTwitter />} />
-              <SocialIcon icon={<FaYoutube />} />
-              <SocialIcon icon={<FaInstagram />} />
+              <a
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg hover:bg-[#F47C20] transition cursor-pointer"
+                href="https://www.facebook.com/people/Chakra-Financial-Services/61587570840796/"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg hover:bg-[#F47C20] transition cursor-pointer"
+                href="https://x.com/"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg hover:bg-[#F47C20] transition cursor-pointer"
+                href="https://www.youtube.com/"
+              >
+                <FaYoutube />
+              </a>
+              <a
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg hover:bg-[#F47C20] transition cursor-pointer"
+                href="https://www.instagram.com/chakrafinancialservices?igsh=N2Y0ajIwYjRyY2h6"
+              >
+                <FaInstagram />
+              </a>
             </div>
           </div>
 
