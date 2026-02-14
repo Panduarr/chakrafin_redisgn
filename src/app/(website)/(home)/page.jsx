@@ -66,7 +66,7 @@ export const Banner = () => {
   return (
     <>
       {/* Banner */}
-      <div className="relative w-full min-h-[60vh] lg:min-h-[65vh]  lg:top-24  overflow-hidden max-w-7xl mx-auto">
+      <div className="relative w-full min-h-[60vh] lg:min-h-[70vh]  lg:top-17  overflow-hidden max-w-7xl mx-auto">
         {/* ================= IMAGES ================= */}
         {banners.map((banner, i) => (
           <div
@@ -167,7 +167,7 @@ function AboutSection() {
   const [showKeyMore, setShowKeyMore] = useState(false);
 
   return (
-    <section id="about" className="bg-[#F8FAFC] py-5 lg:pt-10 lg:pb-10 ">
+    <section id="about" className="bg-[#F8FAFC] py-5 lg:pt-5 lg:pb-10 ">
       <div className="max-w-7xl mx-auto px-6 lg:px-18 lg:mt-20">
         {/* ---------- HEADER ---------- */}
         <div className="text-center mb-4">
