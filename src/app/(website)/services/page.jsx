@@ -1,5 +1,7 @@
 "use client";
 
+import Footer from "@/app/components/shared/Footer";
+import Navbar from "@/app/components/shared/Navbar";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -69,12 +71,12 @@ const servicesdata = [
   },
 ];
 
-
 export default function ServicesPage() {
   const [openId, setOpenId] = useState(null);
 
   return (
     <>
+      <Navbar />
       {/* ================== BANNER ================== */}
       <section>
         <div className="relative w-full h-auto">
@@ -148,6 +150,7 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
+      <Footer />
     </>
   );
 }
