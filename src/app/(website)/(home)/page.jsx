@@ -1,7 +1,7 @@
 "use client";
 import Footer from "@/app/components/shared/Footer";
 import Navbar from "@/app/components/shared/Navbar";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Home() {
   return (
@@ -199,10 +199,10 @@ function AboutSection() {
         {/* ---------- MISSION & VISION (TOGGLE) ---------- */}
         <div className="grid md:grid-cols-2 gap-10 mb-10 ">
           <ToggleSection
-            letter="M"
             title="Our Mission"
             color="#F47C20"
-            shortText="Empowering clients with the right financial tools and guidance."
+            shortText="Our mission is to empower our clients with the right financial tools, knowledge, and access to
+            opportunities that support growth and security."
             fullText="Our mission is to empower our clients with the right financial tools, knowledge, and access to
             opportunities that support growth and security. By combining professional expertise with a
             human approach, we aim to simplify complex financial processes and create meaningful
@@ -210,7 +210,6 @@ function AboutSection() {
           />
 
           <ToggleSection
-            letter="V"
             title="Our Vision"
             color="#1E6FB8"
             shortText="Building a financially stronger community."
@@ -289,7 +288,7 @@ function AboutSection() {
 }
 
 /* ---------- TOGGLE SECTION (MISSION / VISION) ---------- */
-const ToggleSection = ({ letter, title, shortText, fullText, color }) => {
+const ToggleSection = ({ title, shortText, fullText, color }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -297,13 +296,6 @@ const ToggleSection = ({ letter, title, shortText, fullText, color }) => {
       className="bg-white rounded-2xl p-8 shadow-md border-l-4"
       style={{ borderColor: color }}
     >
-      <div
-        className="w-12 h-12 flex items-center justify-center rounded-full font-bold mb-4"
-        style={{ backgroundColor: `${color}1A`, color }}
-      >
-        {letter}
-      </div>
-
       <h3 className="text-xl font-semibold mb-3" style={{ color }}>
         {title}
       </h3>
@@ -534,7 +526,10 @@ function OurServices() {
   const [openId, setOpenId] = useState(null);
 
   return (
-    <section id="services" className="bg-[#F8FAFC] py-6 lg:pt-30 lg:-mt-20 px-6 lg:px-18">
+    <section
+      id="services"
+      className="bg-[#F8FAFC] py-6 lg:pt-30 lg:-mt-20 px-6 lg:px-18"
+    >
       <div className="max-w-7xl mx-auto ">
         {/* ---------- TITLE ---------- */}
         <div className="text-center pb-6">
@@ -549,7 +544,7 @@ function OurServices() {
             <div
               key={service.id}
               className="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden
-                         border-t-4 border-[#1E6FB8] hover:scale-[1.03]" 
+                         border-t-4 border-[#1E6FB8] hover:scale-[1.03]"
             >
               {/* Image */}
               <div className="relative h-40 w-full">
@@ -573,15 +568,12 @@ function OurServices() {
                     {service.long}
                   </p>
                 )}
-
-                <button
-                  onClick={() =>
-                    setOpenId(openId === service.id ? null : service.id)
-                  }
+                <a
                   className="mt-4 text-sm font-medium text-[#F47C20] hover:underline"
+                  href="/services"
                 >
-                  {openId === service.id ? "Show Less" : "Read More →"}
-                </button>
+                  View more
+                </a>
               </div>
             </div>
           ))}
@@ -602,80 +594,62 @@ const services = [
   { id: 6, title: "Bank 6", image: "/bank6.png" },
   { id: 7, title: "Bank 7", image: "/bank7.png" },
   { id: 8, title: "Bank 8", image: "/bank8.png" },
-  { id: 9, title: "Bank 9", image: "/bank1.png" },
-  { id: 10, title: "Bank 10", image: "/bank2.png" },
-  { id: 11, title: "Bank 11", image: "/bank3.png" },
-  { id: 12, title: "Bank 12", image: "/bank4.png" },
-  { id: 13, title: "Bank 13", image: "/bank5.png" },
-  { id: 14, title: "Bank 14", image: "/bank6.png" },
-  { id: 15, title: "Bank 15", image: "/bank7.png" },
-  { id: 16, title: "Bank 16", image: "/bank8.png" },
-  { id: 17, title: "Bank 1", image: "/bank1.png" },
-  { id: 18, title: "Bank 2", image: "/bank2.png" },
-  { id: 19, title: "Bank 3", image: "/bank3.png" },
-  { id: 20, title: "Bank 4", image: "/bank4.png" },
-  { id: 21, title: "Bank 5", image: "/bank5.png" },
-  { id: 22, title: "Bank 6", image: "/bank6.png" },
-  { id: 23, title: "Bank 7", image: "/bank7.png" },
-  { id: 24, title: "Bank 8", image: "/bank8.png" },
-  { id: 25, title: "Bank 9", image: "/bank1.png" },
-  { id: 26, title: "Bank 10", image: "/bank2.png" },
-  { id: 27, title: "Bank 11", image: "/bank3.png" },
-  { id: 28, title: "Bank 12", image: "/bank4.png" },
-  { id: 29, title: "Bank 13", image: "/bank5.png" },
-  { id: 30, title: "Bank 14", image: "/bank6.png" },
-  { id: 31, title: "Bank 15", image: "/bank7.png" },
-  { id: 32, title: "Bank 16", image: "/bank8.png" },
 ];
 /* ================= COMPONENT ================= */
 export const ServicesCarousel = () => {
-  const visibleCards = 4;
-  const [index, setIndex] = useState(0);
+  const trackRef = useRef(null);
+  const [offset, setOffset] = useState(0);
+  const duplicatedServices = [...services, ...services];
 
-  /* 🔁 AUTO SCROLL */
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => {
-        const maxIndex = services.length - visibleCards;
-        return prev >= maxIndex ? 0 : prev + 1;
-      });
-    }, 3000); // speed
+    let animationFrame;
 
-    return () => clearInterval(interval);
+    const move = () => {
+      setOffset((prev) => {
+        const trackWidth = trackRef.current.scrollWidth / 2;
+        return prev >= trackWidth ? 0 : prev + 0.5; // speed here
+      });
+      animationFrame = requestAnimationFrame(move);
+    };
+
+    animationFrame = requestAnimationFrame(move);
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
 
   return (
-    <section id="clients" className=" py-6 lg:pb-6 lg:pt-30 lg:-mt-24 lg:px-30  bg-white px-18">
+    <section
+      id="clients"
+      className=" py-6 lg:pb-6 lg:pt-30 lg:-mt-24 lg:px-30  bg-white px-18"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <h2 className="text-center text-3xl font-bold text-[#1E6FB8] mb-10">
+        <h2 className="text-center text-3xl font-bold text-[#1E6FB8] mb-5">
           Our Beloved Clients
         </h2>
 
         {/* Carousel */}
         <div className="overflow-hidden">
           <div
-            className="flex gap-2 transition-transform duration-700 ease-in-out"
+            ref={trackRef}
+            className="flex gap-6"
             style={{
-              transform: `translateX(-${index * (100 / visibleCards)}%)`,
+              transform: `translateX(-${offset}px)`,
+              willChange: "transform",
             }}
           >
-            {services.map((service) => (
+            {duplicatedServices.map((service, i) => (
               <div
-                key={service.id}
-                className=" min-w-[100%]  sm:min-w-[50%] md:min-w-[33.333%] lg:min-w-[16%] "
+                key={i}
+                className="flex-shrink-0 w-[160px] flex justify-center"
               >
-                <div className="flex flex-col items-center  ">
-                  {/* LOGO (30–40px only) */}
-                  <div className="flex items-center justify-center  h-20 ">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={120}
-                      height={160}
-                      className=" w-full h-auto object-contain "
-                    />
-                  </div>
+                <div className="flex items-center justify-center h-20">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={120}
+                    height={60}
+                    className="object-contain"
+                  />
                 </div>
               </div>
             ))}
@@ -686,16 +660,47 @@ export const ServicesCarousel = () => {
   );
 };
 
-
-
 // Contact
 import { Phone, Mail, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+const reviews = [
+  {
+    name: "Kaiser Kaiz",
+    text:
+      "The loan process was smooth and transparent. The team guided me at every step and helped me choose the best financial option. Highly recommended.",
+  },
+  {
+    name: "Rohit Sharma",
+    text:
+      "Chakra Financial Services helped me secure a business loan quickly. Their guidance made the entire process stress-free.",
+  },
+  {
+    name: "Anusha Reddy",
+    text:
+      "Very professional and reliable service. They explained every detail clearly and helped me choose the right home loan.",
+  },
+];
+
 
 function ContactFinance() {
-  return (
-    <section id="contact" className="bg-[#F8FAFC] py-6 lg:pb-10 lg:py-30 lg:-mt-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-18 grid lg:grid-cols-2 gap-12 items-start">
+  const [index, setIndex] = useState(0);
+  const total = reviews.length;
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % total);
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, [total]);
+
+  const prev = () => setIndex((index - 1 + total) % total);
+  const next = () => setIndex((index + 1) % total);
+  return (
+    <section
+      id="contact"
+      className="bg-[#F8FAFC] py-6 lg:pb-10 lg:py-30 lg:-mt-20"
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-18 grid lg:grid-cols-2 gap-12 items-start">
         {/* ---------------- LEFT : FORM ---------------- */}
         <div className="bg-[#EEF4FB] rounded-2xl shadow-xl p-6 md:p-8 border-t-4 border-[#1E6FB8]">
           <h3 className="text-xl md:text-2xl font-semibold text-[#1E6FB8] mb-6">
@@ -729,7 +734,6 @@ function ContactFinance() {
 
         {/* ---------------- RIGHT : INFO + REVIEWS ---------------- */}
         <div className="space-y-8">
-
           {/* Contact Info */}
           <div className="grid sm:grid-cols-2 gap-6">
             <InfoCard1
@@ -752,34 +756,49 @@ function ContactFinance() {
           />
 
           {/* Reviews */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 relative border-l-4 border-[#F47C20] hover:scale-[1.03]">
+          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 relative border-l-4 border-[#F47C20] overflow-hidden">
             <h4 className="text-lg md:text-xl font-semibold text-[#1E6FB8] mb-4">
               Client Reviews
             </h4>
 
-            <p className="italic text-gray-600 leading-relaxed text-sm md:text-base">
-              “The loan process was smooth and transparent. The team guided me
-              at every step and helped me choose the best financial option.
-              Highly recommended.”
-            </p>
+            {/* SLIDER */}
+            <div className="relative h-[130px]">
+              {reviews.map((review, i) => (
+                <div
+                  key={i}
+                  className={`absolute inset-0 transition-all duration-700 ease-in-out
+              ${i === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"}
+            `}
+                >
+                  <p className="italic text-gray-600 leading-relaxed text-sm md:text-base">
+                    “{review.text}”
+                  </p>
 
-            <p className="mt-4 font-medium text-gray-800">
-              — Kaiser Kaiz
-            </p>
+                  <p className="mt-4 font-medium text-gray-800">
+                    — {review.name}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-            {/* Arrows */}
+            {/* CONTROLS */}
             <div className="absolute right-4 bottom-4 flex gap-2">
-              <button className="p-2 rounded-full border border-[#1E6FB8] text-[#1E6FB8] hover:bg-[#1E6FB8] hover:text-white transition">
+              <button
+                onClick={prev}
+                className="p-2 rounded-full border border-[#1E6FB8] text-[#1E6FB8] hover:bg-[#1E6FB8] hover:text-white transition"
+              >
                 <ChevronLeft size={18} />
               </button>
-              <button className="p-2 rounded-full border border-[#1E6FB8] text-[#1E6FB8] hover:bg-[#1E6FB8] hover:text-white transition">
+
+              <button
+                onClick={next}
+                className="p-2 rounded-full border border-[#1E6FB8] text-[#1E6FB8] hover:bg-[#1E6FB8] hover:text-white transition"
+              >
                 <ChevronRight size={18} />
               </button>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );
@@ -800,4 +819,3 @@ const InfoCard1 = ({ icon, title, text, fullWidth }) => (
     </div>
   </div>
 );
-
