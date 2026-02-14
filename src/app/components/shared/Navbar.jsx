@@ -51,7 +51,7 @@ function Navbar() {
   return (
     <>
       {/* Top Bar (Desktop Only) */}
-      <div className="max-w-7xl mx-auto">
+      {/* <div className="max-w-7xl mx-auto">
         <div className="lg:fixed lg:w-full lg:z-5 hidden  md:flex bg-white justify-between px-10 py-1 text-sm max-w-7xl mx-auto border-b-2 border-[#1E6FB8]  ">
           <div className="flex gap-4 text-[#F47C20]">
             <a
@@ -93,7 +93,7 @@ function Navbar() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Navbar */}
       <div className="bg-white shadow-sm w-full fixed lg:w-full z-2 lg:mt-7">
