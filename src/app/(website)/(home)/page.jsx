@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 function Home() {
   return (
-    <div id="home" className="bg-[#F8FAFC] ">
+    <div id="home" className="bg-blue-50 ">
       <Navbar active="home" />
       <Banner />
       <AboutSection />
@@ -112,7 +112,7 @@ function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-[#F8FAFC] py-5 pt-15 -mt-10  lg:pt-28 lg:-mt-20  lg:pb-10 "
+      className=" py-5 pt-15 -mt-10  lg:pt-28 lg:-mt-20 "
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-18 ">
         {/* ---------- HEADER ---------- */}
@@ -200,7 +200,7 @@ function AboutSection() {
         </div>
 
         {/* ---------- KEY PERSON ---------- */}
-        <div className="bg-white border-t-4 border-[#1E6FB8] rounded-3xl p-10 shadow-lg ">
+        <div className="border-t-4 border-[#1E6FB8] rounded-3xl p-10 shadow-lg ">
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Image */}
             <div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden ring-4 ring-[#F47C20]/30">
@@ -378,7 +378,7 @@ function OurServices() {
   return (
     <section
       id="services"
-      className="bg-[#F8FAFC] py-6 lg:pt-30 lg:-mt-20 px-6 lg:px-18"
+      className=" py-6 lg:pt-30 lg:-mt-20 px-6 lg:px-18"
     >
       <div className="max-w-7xl mx-auto ">
         {/* ---------- TITLE ---------- */}
@@ -469,7 +469,7 @@ export const ServicesCarousel = () => {
   return (
     <section
       id="clients"
-      className=" py-6 lg:pb-6 lg:pt-30 lg:-mt-24 lg:px-30  bg-white px-18"
+      className=" py-6 lg:pb-6 lg:pt-30 lg:-mt-24 lg:px-30  px-18"
     >
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
@@ -544,7 +544,7 @@ function ContactFinance() {
   return (
     <section
       id="contact"
-      className="bg-[#F8FAFC] py-6 lg:pb-10 lg:py-30 lg:-mt-20"
+      className=" py-6 lg:pb-10 lg:py-30 lg:-mt-20"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-18 grid lg:grid-cols-2 gap-12 items-start">
         {/* ---------------- LEFT : FORM ---------------- */}

@@ -96,7 +96,7 @@ function Navbar() {
       </div> */}
 
       {/* Main Navbar */}
-      <div className="bg-white shadow-sm w-full fixed lg:w-full z-2 ">
+      <div className="bg-white opacity-90 shadow-sm w-full fixed lg:w-full z-2 ">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-1">
           {/* Logo */}
           <img
