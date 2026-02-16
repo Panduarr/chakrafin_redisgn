@@ -64,38 +64,34 @@ export const Banner = () => {
 
   return (
     <>
-     
-      <div className="pt-13 lg:pt-18 max-w-7xl mx-0">
-        <img className="w-full h-120 object-fill" src="/home_Banner.png" alt="" />
+      <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]  pt-10">
+        <img
+          src="/home_Banner.png"
+          alt="Home Banner"
+          className="w-full h-full object-fill"
+        />
 
         {/* ================= DARK OVERLAY ================= */}
         <div className="absolute inset-0" />
 
         {/* ================= TEXT CONTENT ================= */}
-        <div className="absolute inset-0  flex items-center">
+        <div className="absolute top-25 lg:top-50  flex items-center">
           <div className="w-full">
             <div className=" max-w-7xl mx-auto px-4 md:px-12">
-              <h2 className="text-2xl md:text-5xl font-bold text-[#1F6FD8] leading-tight max-w-2xl">
+              <h2 className="text-xl md:text-5xl font-bold text-[#1F6FD8] leading-tight max-w-2xl">
                 Empowering Your Financial Success
               </h2>
 
-              <p className="mt-4 text-base md:text-lg text-[#1F6FD8]/90 max-w-xl leading-relaxed">
+              <p className="mt-4 text-base md:text-sm text-[#1F6FD8]/90 max-w-xl leading-relaxed">
                 Trusted Solutions for Your Business and Personal Needs
               </p>
 
-              <div className="mt-6 flex flex-col lg:flex lg:flex-row gap-4">
+              <div className="mt-6">
                 <a
-                  href="/contact"
+                  href="#contact"
                   className="px-6 py-3 rounded-xl bg-white text-[#F47C20] font-semibold hover:scale-[1.03] transition w-fit"
                 >
                   Get a Free Consultation
-                </a>
-
-                <a
-                  href="/instantloan"
-                  className="px-6 py-3 rounded-xl bg-[#F47C20] text-[#1E6FB8] font-semibold hover:scale-[1.03] transition w-fit"
-                >
-                  Learn More
                 </a>
               </div>
             </div>
@@ -103,7 +99,6 @@ export const Banner = () => {
         </div>
 
         {/* ================= CONTROLS LAYER ================= */}
-        
       </div>
     </>
   );
@@ -115,7 +110,10 @@ function AboutSection() {
   const [showKeyMore, setShowKeyMore] = useState(false);
 
   return (
-    <section id="about" className="bg-[#F8FAFC] py-5 lg:pt-5 lg:pb-10 ">
+    <section
+      id="about"
+      className="bg-[#F8FAFC] py-5 pt-15 -mt-10  lg:pt-28 lg:-mt-20  lg:pb-10 "
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-18 ">
         {/* ---------- HEADER ---------- */}
         <div className="text-center mb-4">
@@ -127,20 +125,52 @@ function AboutSection() {
         {/* ---------- ABOUT CONTENT ---------- */}
         <div className="max-w-5xl mx-auto text-base mb-10 text-justify">
           <p className="text-gray-700  mb-4 leading-relaxed">
-            Chakra Financial Services is a client-focused financial consultancy
-            dedicated to supporting individuals and businesses with practical,
-            transparent, and result-oriented financial solutions. Our approach
-            is built on understanding real financial needs and delivering
-            services aligned with long-term goals rather than short-term gains.
+            <p>
+              About Us – Chakra Financial Services At Chakra Financial Services,
+              we believe financial support should be simple, transparent, and
+              accessible to everyone. As a trusted loan advisory and financial
+              services company operating across India, we are committed to
+              helping individuals, families, entrepreneurs, and businesses
+              secure the right financial solutions to achieve their goals with
+              confidence.
+            </p>
             <br />
-            We work closely with trusted financial institutions and service
-            partners across loans, insurance, and structured financial
-            solutions, helping clients make decisions with clarity and
-            confidence.
+            <p>
+              With a strong presence throughout the country, Chakra Financial
+              Services provides comprehensive loan assistance tailored to
+              diverse financial needs. We offer end-to-end support across all
+              types of loan services, including personal loans, business loans,
+              home loans, mortgage loans, loan against property, education
+              loans, working capital finance, balance transfer services,
+              refinancing, and Insurance more. No matter the requirement, our
+              team ensures that every client receives the most suitable funding
+              option with competitive terms and smooth processing.
+            </p>
             <br />
-            At Chakra Financial Services, we believe in responsible advisory,
-            ethical practices, and building enduring relationships that create
-            measurable value over time.
+            <p>
+              Our approach is built on understanding first. We take the time to
+              listen to our clients’ financial objectives and challenges before
+              recommending solutions. From documentation and eligibility
+              assessment to approval and disbursement coordination, we guide
+              clients at every step of the journey. Our goal is not just to
+              arrange loans, but to create financial clarity and long-term
+              value.
+            </p>
+            <br />
+            <p>
+              Integrity, professionalism, and customer satisfaction are at the
+              heart of everything we do. We maintain strong relationships with
+              leading banks and financial institutions across India, enabling us
+              to provide flexible options and faster turnaround times.
+            </p>
+            <br />
+            <p>
+              At Chakra Financial Services, we don’t just process applications —
+              we build trusted financial partnerships that support growth,
+              stability, and success.
+            </p>
+            <br />
+            <p> Your financial progress is our commitment.</p>
           </p>
         </div>
 
@@ -186,28 +216,29 @@ function AboutSection() {
             {/* Content */}
             <div className="md:col-span-2">
               <h3 className="text-2xl font-bold text-[#1E6FB8]">
-                Key Leadership
+                Our Founder & Key Person
               </h3>
               <p className="text-[#F47C20] font-medium mb-4">
                 Chakra Financial Services
+                
               </p>
 
               {/* Always visible short text */}
               <p className="text-gray-700 mb-4 leading-relaxed">
-                At the core of Chakra Financial Services is a leadership vision
-                centered on trust, responsibility, and meaningful financial
-                support.
+                C S Reddy, the founder of Chakra Financial Services, brings
+                  over 10 years of expertise in the financial sector.
               </p>
 
               {/* Toggle text */}
               {showKeyMore && (
                 <p className="text-gray-700 mb-4 leading-relaxed">
-                  Financial services are treated as long-term partnerships
-                  rather than transactional engagements. Leadership emphasizes
-                  listening first, advising responsibly, and standing
-                  accountable throughout the client’s financial journey. This
-                  personal commitment to ethical practices continues to guide
-                  the organization’s service standards and long-term direction.
+                   With a
+                  strong focus on customer-centric solutions and transparent
+                  loan services, Reddy established the company to help
+                  individuals and businesses access the right financial support
+                  at the right time. His deep industry knowledge and commitment
+                  to excellence have been instrumental in building a trusted
+                  name in the finance industry across India.
                 </p>
               )}
 
@@ -276,7 +307,6 @@ const InfoCard = ({ title, text, color }) => (
     <p className="text-sm text-gray-600 mt-1">{text}</p>
   </div>
 );
-
 
 // our services
 const servicesdata = [
