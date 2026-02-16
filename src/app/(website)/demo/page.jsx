@@ -177,6 +177,162 @@
 //               />
 //             ))}
 //           </div> */}
+
+// import { Phone, Mail, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+// const reviews = [
+//   {
+//     name: "Kaiser Kaiz",
+//     text: "The loan process was smooth and transparent. The team guided me at every step and helped me choose the best financial option. Highly recommended.",
+//   },
+//   {
+//     name: "Rohit Sharma",
+//     text: "Chakra Financial Services helped me secure a business loan quickly. Their guidance made the entire process stress-free.",
+//   },
+//   {
+//     name: "Anusha Reddy",
+//     text: "Very professional and reliable service. They explained every detail clearly and helped me choose the right home loan.",
+//   },
+// ];
+
+// function ContactFinance() {
+//   const [index, setIndex] = useState(0);
+//   const total = reviews.length;
+
+//   useEffect(() => {
+//     const timer = setInterval(() => {
+//       setIndex((prev) => (prev + 1) % total);
+//     }, 2000);
+
+//     return () => clearInterval(timer);
+//   }, [total]);
+
+//   const prev = () => setIndex((index - 1 + total) % total);
+//   const next = () => setIndex((index + 1) % total);
+//   return (
+//     <section
+//       id="contact"
+//       className=" py-6 lg:pb-10 lg:py-30 lg:-mt-20"
+//     >
+//       <div className="max-w-7xl mx-auto px-6 lg:px-18 grid lg:grid-cols-2 gap-12 items-start">
+//         {/* ---------------- LEFT : FORM ---------------- */}
+//         <div className="bg-[#EEF4FB] rounded-2xl shadow-xl p-6 md:p-8 border-t-4 border-[#1E6FB8]">
+//           <h3 className="text-xl md:text-2xl font-semibold text-[#1E6FB8] mb-6">
+//             Get in Touch
+//           </h3>
+
+//           <form className="space-y-5">
+//             <input
+//               className="input bg-white hover:scale-[1.03]"
+//               placeholder="Your Name"
+//             />
+//             <input
+//               className="input bg-white hover:scale-[1.03]"
+//               placeholder="Phone Number"
+//             />
+//             <input
+//               className="input bg-white hover:scale-[1.03]"
+//               placeholder="Email Address"
+//             />
+//             <textarea
+//               rows="4"
+//               className="input bg-white resize-none hover:scale-[1.03]"
+//               placeholder="Message"
+//             />
+
+//             <button className="w-full bg-[#F47C20] hover:bg-[#d96d1b] text-white py-3 rounded-lg font-medium transition hover:scale-[1.03]">
+//               Submit Now
+//             </button>
+//           </form>
+//         </div>
+
+//         {/* ---------------- RIGHT : INFO + REVIEWS ---------------- */}
+//         <div className="space-y-8">
+//           {/* Contact Info */}
+//           <div className="grid sm:grid-cols-2 gap-6">
+//             <InfoCard1
+//               icon={<Phone size={20} />}
+//               title="Call Us"
+//               text="+91 93920 37809"
+//             />
+//             <InfoCard1
+//               icon={<Mail size={20} />}
+//               title="Email Us"
+//               text="info@chakrafin.com"
+//             />
+//           </div>
+
+//           <InfoCard1
+//             icon={<MapPin size={20} />}
+//             title="Location"
+//             text="101, Sai Surya Residency, Madeenaguda,Hyderabad, Telangana, India - 500049"
+//             fullWidth
+//           />
+
+//           {/* Reviews */}
+//           <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 relative border-l-4 border-[#F47C20] overflow-hidden">
+//             <h4 className="text-lg md:text-xl font-semibold text-[#1E6FB8] mb-4">
+//               Client Reviews
+//             </h4>
+
+//             {/* SLIDER */}
+//             <div className="relative h-[130px]">
+//               {reviews.map((review, i) => (
+//                 <div
+//                   key={i}
+//                   className={`absolute inset-0 transition-all duration-700 ease-in-out
+//               ${i === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"}
+//             `}
+//                 >
+//                   <p className="italic text-gray-600 leading-relaxed text-sm md:text-base">
+//                     “{review.text}”
+//                   </p>
+
+//                   <p className="mt-4 font-medium text-gray-800">
+//                     — {review.name}
+//                   </p>
+//                 </div>
+//               ))}
+//             </div>
+
+//             {/* CONTROLS */}
+//             <div className="absolute right-4 bottom-4 flex gap-2">
+//               <button
+//                 onClick={prev}
+//                 className="p-2 rounded-full border border-[#1E6FB8] text-[#1E6FB8] hover:bg-[#1E6FB8] hover:text-white transition"
+//               >
+//                 <ChevronLeft size={18} />
+//               </button>
+
+//               <button
+//                 onClick={next}
+//                 className="p-2 rounded-full border border-[#1E6FB8] text-[#1E6FB8] hover:bg-[#1E6FB8] hover:text-white transition"
+//               >
+//                 <ChevronRight size={18} />
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// /* ---------------- REUSABLE COMPONENT ---------------- */
+
+// const InfoCard1 = ({ icon, title, text, fullWidth }) => (
+//   <div
+//     className={`bg-white rounded-xl shadow-md p-5 flex gap-4 items-start border-t-4 border-[#1E6FB8] hover:scale-[1.03] ${
+//       fullWidth ? "sm:col-span-2" : ""
+//     }`}
+//   >
+//     <div className="text-[#F47C20]">{icon}</div>
+//     <div>
+//       <h5 className="font-semibold text-[#1E6FB8]">{title}</h5>
+//       <p className="text-sm text-gray-600">{text}</p>
+//     </div>
+//   </div>
+// );
+
         import React from 'react'
         
         function page() {

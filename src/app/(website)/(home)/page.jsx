@@ -11,7 +11,8 @@ function Home() {
       <AboutSection />
       <OurServices />
       <ServicesCarousel />
-      <ContactFinance />
+      <WhyChooseChakra />
+      <TestimonialSlider />
       <Footer active="home" />
     </div>
   );
@@ -318,7 +319,7 @@ const servicesdata = [
   {
     id: 2,
     title: "Business Loans",
-    img: "/businessloan.png",
+    img: "/Businessloan.png",
     short:
       "Structured funding solutions to support business growth and operations.",
     long: "Chakra Financial Services supports entrepreneurs, MSMEs, and growing businesses with structured funding solutions for working capital, expansion, equipment purchase, and operational needs. We focus on understanding your business model and aligning you with financing options that support sustainable growth.",
@@ -349,7 +350,7 @@ const servicesdata = [
   {
     id: 6,
     title: "Insurance Services",
-    img: "/insuranceloan.png",
+    img: "/Insuranceloan.png",
     short:
       "Advisory services to protect life, health, assets, and business interests.",
     long: "Our insurance advisory focuses on protecting what matters most—life, health, assets, and business interests. We assist clients in choosing suitable coverage based on risk profile and long-term needs, ensuring informed decisions rather than product-driven selling.",
@@ -511,157 +512,329 @@ export const ServicesCarousel = () => {
 };
 
 // Contact
-import { Phone, Mail, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
-const reviews = [
-  {
-    name: "Kaiser Kaiz",
-    text: "The loan process was smooth and transparent. The team guided me at every step and helped me choose the best financial option. Highly recommended.",
-  },
-  {
-    name: "Rohit Sharma",
-    text: "Chakra Financial Services helped me secure a business loan quickly. Their guidance made the entire process stress-free.",
-  },
-  {
-    name: "Anusha Reddy",
-    text: "Very professional and reliable service. They explained every detail clearly and helped me choose the right home loan.",
-  },
-];
 
-function ContactFinance() {
-  const [index, setIndex] = useState(0);
-  const total = reviews.length;
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % total);
-    }, 2000);
 
-    return () => clearInterval(timer);
-  }, [total]);
 
-  const prev = () => setIndex((index - 1 + total) % total);
-  const next = () => setIndex((index + 1) % total);
+// import { ShieldCheck, Users, BadgeCheck } from "lucide-react";
+
+// function WhyChooseChakra() {
+//   return (
+//     <section className="relative w-full py-24 overflow-hidden">
+      
+//       {/* Background Image */}
+//       <div
+//         className="absolute inset-0 bg-cover bg-center"
+//         style={{ backgroundImage: "url('/whywechoose.png')" }}
+//       />
+
+//       {/* Gradient Overlay */}
+//      <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/30"></div>
+
+//       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+//         {/* LEFT SIDE */}
+//         <div>
+//           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-12">
+//             Why Choose Chakra?
+//           </h2>
+
+//           <div className="space-y-10">
+
+//             {/* Item 1 */}
+//             <div className="flex items-start gap-5">
+//               <div className="p-4 rounded-xl bg-orange-100 text-orange-500 shadow-md">
+//                 <Users size={28} />
+//               </div>
+//               <div>
+//                 <h4 className="text-lg font-semibold text-gray-900">
+//                   Experienced Professionals
+//                 </h4>
+//                 <p className="text-gray-600 mt-1">
+//                   Years of Expertise in Finance
+//                 </p>
+//               </div>
+//             </div>
+
+//             {/* Item 2 */}
+//             <div className="flex items-start gap-5">
+//               <div className="p-4 rounded-xl bg-blue-100 text-blue-600 shadow-md">
+//                 <ShieldCheck size={28} />
+//               </div>
+//               <div>
+//                 <h4 className="text-lg font-semibold text-gray-900">
+//                   Reliable & Secure
+//                 </h4>
+//                 <p className="text-gray-600 mt-1">
+//                   Safe & Trustworthy Transactions
+//                 </p>
+//               </div>
+//             </div>
+
+//             {/* Item 3 */}
+//             <div className="flex items-start gap-5">
+//               <div className="p-4 rounded-xl bg-yellow-100 text-yellow-600 shadow-md">
+//                 <BadgeCheck size={28} />
+//               </div>
+//               <div>
+//                 <h4 className="text-lg font-semibold text-gray-900">
+//                   Customer First Approach
+//                 </h4>
+//                 <p className="text-gray-600 mt-1">
+//                   Your Goals, Our Priority
+//                 </p>
+//               </div>
+//             </div>
+
+//           </div>
+//         </div>
+
+//         {/* RIGHT SIDE FORM */}
+//         <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-10 max-w-md w-full mx-auto border border-gray-200">
+          
+//           <h3 className="text-2xl font-semibold text-blue-900 mb-8">
+//             Get in Touch
+//           </h3>
+
+//           <form className="space-y-5">
+
+//             <input
+//               type="text"
+//               placeholder="Your Name"
+//               className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
+//             />
+
+//             <input
+//               type="email"
+//               placeholder="Email Address"
+//               className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
+//             />
+
+//             <input
+//               type="tel"
+//               placeholder="Phone Number"
+//               className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
+//             />
+
+//             <textarea
+//               rows="4"
+//               placeholder="Message"
+//               className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
+//             ></textarea>
+
+//             <button
+//               type="submit"
+//               className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-300"
+//             >
+//               Request Consultation
+//             </button>
+
+//           </form>
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// }
+
+import { ShieldCheck, Users, BadgeCheck } from "lucide-react";
+
+function WhyChooseChakra() {
   return (
-    <section
-      id="contact"
-      className=" py-6 lg:pb-10 lg:py-30 lg:-mt-20"
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-18 grid lg:grid-cols-2 gap-12 items-start">
-        {/* ---------------- LEFT : FORM ---------------- */}
-        <div className="bg-[#EEF4FB] rounded-2xl shadow-xl p-6 md:p-8 border-t-4 border-[#1E6FB8]">
-          <h3 className="text-xl md:text-2xl font-semibold text-[#1E6FB8] mb-6">
+    <section className="relative w-full px-4 sm:px-6 lg:px-18 pt-12 pb-20 overflow-hidden">
+
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center brightness-110 contrast-110"
+        style={{ backgroundImage: "url('/whywechoose.png')" }}
+      />
+
+      {/* Directional Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/40 to-transparent"></div>
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        {/* LEFT CONTENT */}
+        <div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-8 sm:mb-12">
+            Why Choose Chakra?
+          </h2>
+
+          <div className="space-y-8 sm:space-y-10">
+
+            {/* Item 1 */}
+            <div className="flex items-start gap-4 sm:gap-5">
+              <div className="p-3 sm:p-4 rounded-xl bg-orange-100 text-orange-500 shadow-md">
+                <Users size={24} className="sm:size-[28px]" />
+              </div>
+              <div>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900">
+                  Experienced Professionals
+                </h4>
+                <p className="text-sm sm:text-base text-gray-600 mt-1">
+                  Years of Expertise in Finance
+                </p>
+              </div>
+            </div>
+
+            {/* Item 2 */}
+            <div className="flex items-start gap-4 sm:gap-5">
+              <div className="p-3 sm:p-4 rounded-xl bg-blue-100 text-blue-600 shadow-md">
+                <ShieldCheck size={24} className="sm:size-[28px]" />
+              </div>
+              <div>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900">
+                  Reliable & Secure
+                </h4>
+                <p className="text-sm sm:text-base text-gray-600 mt-1">
+                  Safe & Trustworthy Transactions
+                </p>
+              </div>
+            </div>
+
+            {/* Item 3 */}
+            <div className="flex items-start gap-4 sm:gap-5">
+              <div className="p-3 sm:p-4 rounded-xl bg-yellow-100 text-yellow-600 shadow-md">
+                <BadgeCheck size={24} className="sm:size-[28px]" />
+              </div>
+              <div>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900">
+                  Customer First Approach
+                </h4>
+                <p className="text-sm sm:text-base text-gray-600 mt-1">
+                  Your Goals, Our Priority
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* RIGHT FORM */}
+        <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 w-full max-w-md mx-auto border border-gray-200">
+          
+          <h3 className="text-xl sm:text-2xl font-semibold text-blue-900 mb-6 sm:mb-8">
             Get in Touch
           </h3>
 
-          <form className="space-y-5">
+          <form className="space-y-4 sm:space-y-5">
+
             <input
-              className="input bg-white hover:scale-[1.03]"
+              type="text"
               placeholder="Your Name"
-            />
-            <input
-              className="input bg-white hover:scale-[1.03]"
-              placeholder="Phone Number"
-            />
-            <input
-              className="input bg-white hover:scale-[1.03]"
-              placeholder="Email Address"
-            />
-            <textarea
-              rows="4"
-              className="input bg-white resize-none hover:scale-[1.03]"
-              placeholder="Message"
+              className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm sm:text-base focus:ring-2 focus:ring-orange-400 outline-none"
             />
 
-            <button className="w-full bg-[#F47C20] hover:bg-[#d96d1b] text-white py-3 rounded-lg font-medium transition hover:scale-[1.03]">
-              Submit Now
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm sm:text-base focus:ring-2 focus:ring-orange-400 outline-none"
+            />
+
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm sm:text-base focus:ring-2 focus:ring-orange-400 outline-none"
+            />
+
+            <textarea
+              rows="4"
+              placeholder="Message"
+              className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm sm:text-base focus:ring-2 focus:ring-orange-400 outline-none"
+            />
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-300"
+            >
+              Request Consultation
             </button>
+
           </form>
         </div>
 
-        {/* ---------------- RIGHT : INFO + REVIEWS ---------------- */}
-        <div className="space-y-8">
-          {/* Contact Info */}
-          <div className="grid sm:grid-cols-2 gap-6">
-            <InfoCard1
-              icon={<Phone size={20} />}
-              title="Call Us"
-              text="+91 93920 37809"
-            />
-            <InfoCard1
-              icon={<Mail size={20} />}
-              title="Email Us"
-              text="info@chakrafin.com"
-            />
-          </div>
-
-          <InfoCard1
-            icon={<MapPin size={20} />}
-            title="Location"
-            text="101, Sai Surya Residency, Madeenaguda,Hyderabad, Telangana, India - 500049"
-            fullWidth
-          />
-
-          {/* Reviews */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 relative border-l-4 border-[#F47C20] overflow-hidden">
-            <h4 className="text-lg md:text-xl font-semibold text-[#1E6FB8] mb-4">
-              Client Reviews
-            </h4>
-
-            {/* SLIDER */}
-            <div className="relative h-[130px]">
-              {reviews.map((review, i) => (
-                <div
-                  key={i}
-                  className={`absolute inset-0 transition-all duration-700 ease-in-out
-              ${i === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"}
-            `}
-                >
-                  <p className="italic text-gray-600 leading-relaxed text-sm md:text-base">
-                    “{review.text}”
-                  </p>
-
-                  <p className="mt-4 font-medium text-gray-800">
-                    — {review.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* CONTROLS */}
-            <div className="absolute right-4 bottom-4 flex gap-2">
-              <button
-                onClick={prev}
-                className="p-2 rounded-full border border-[#1E6FB8] text-[#1E6FB8] hover:bg-[#1E6FB8] hover:text-white transition"
-              >
-                <ChevronLeft size={18} />
-              </button>
-
-              <button
-                onClick={next}
-                className="p-2 rounded-full border border-[#1E6FB8] text-[#1E6FB8] hover:bg-[#1E6FB8] hover:text-white transition"
-              >
-                <ChevronRight size={18} />
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- REUSABLE COMPONENT ---------------- */
+// review
 
-const InfoCard1 = ({ icon, title, text, fullWidth }) => (
-  <div
-    className={`bg-white rounded-xl shadow-md p-5 flex gap-4 items-start border-t-4 border-[#1E6FB8] hover:scale-[1.03] ${
-      fullWidth ? "sm:col-span-2" : ""
-    }`}
-  >
-    <div className="text-[#F47C20]">{icon}</div>
-    <div>
-      <h5 className="font-semibold text-[#1E6FB8]">{title}</h5>
-      <p className="text-sm text-gray-600">{text}</p>
+
+
+
+
+const testimonials = [
+  {
+    name: "David S.",
+    role: "CEO",
+    image: "/Person1.png",
+    text: "Chakra helped us secure the funding we needed to grow our business. Highly recommended!",
+  },
+  {
+    name: "Anita R.",
+    role: "Founder",
+    image: "/Person2.png",
+    text: "Professional team and transparent process. Chakra made financing stress-free.",
+  },
+  {
+    name: "Rahul K.",
+    role: "Managing Director",
+    image: "/Person3.png",
+    text: "Fast approvals and great support throughout. Excellent experience with Chakra.",
+  },
+];
+
+function TestimonialSlider() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000); // auto scroll speed
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const { name, role, image, text } = testimonials[index];
+
+  return (
+    <div className="max-w-7xl mx-auto px-6 lg:px-18 lg:py-5 py-5">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-400 via-orange-300 to-blue-400 opacity-80  shadow-lg  md:p-10 transition-all duration-700">
+        
+        {/* Quote */}
+        <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-6">
+          <span className="text-3xl text-orange-400 font-bold mr-2">“</span>
+          {text}
+          <span className="text-3xl text-orange-400 font-bold ml-2">”</span>
+        </p>
+
+        {/* User */}
+        <div className="flex items-center gap-4">
+          <img
+            src={image}
+            alt={name}
+            className="w-14 h-14 rounded-full object-cover border-2 border-white shadow"
+          />
+          <div>
+            <h4 className="font-semibold text-gray-900">{name}</h4>
+            <p className="text-sm text-gray-500">{role}</p>
+          </div>
+        </div>
+
+        {/* Indicators */}
+        <div className="absolute bottom-4 right-6 flex gap-2">
+          {testimonials.map((_, i) => (
+            <span
+              key={i}
+              className={`h-2 w-2 rounded-full transition ${
+                i === index ? "bg-orange-500" : "bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
+}

@@ -96,7 +96,7 @@ function Navbar() {
       </div> */}
 
       {/* Main Navbar */}
-      <div className="bg-white opacity-90 shadow-sm w-full fixed lg:w-full z-2 ">
+      <div className="bg-white opacity-80 shadow-sm w-full fixed lg:w-full z-2 ">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-1">
           {/* Logo */}
           <img
@@ -106,11 +106,11 @@ function Navbar() {
           />
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex lg:items-center gap-x-4 text-base font-medium">
+          <ul className="hidden lg:flex lg:items-center gap-x-0 text-base font-medium">
             {navLinks.map((item) => (
               <li
                 key={item.label}
-                className={`px-4 py-2 rounded-full transition hover:scale-[1.03] ${isActive(item) ? "text-[#1E6FB8] underline" : "text-gray-700 hover:text-[#F47C20]"}`}
+                className={`px-5 py-2 rounded-full border-2 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] ${isActive(item) ? "text-[#1E6FB8] underline" : "text-gray-700 hover:text-[#F47C20]"}`}
               >
                 <Link
                   href={item.href}
@@ -123,7 +123,7 @@ function Navbar() {
               </li>
             ))}
 
-            <li>
+            <li className="">
               <Link
                 href="/instantloan"
                 className="px-5 py-3 rounded-full text-sm font-semibold bg-[#F47C20] text-white hover:scale-[1.03] transition"
