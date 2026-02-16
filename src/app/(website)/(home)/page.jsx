@@ -801,7 +801,7 @@ function TestimonialSlider() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 lg:px-18 lg:py-5 py-5">
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-orange-400 via-orange-300 to-blue-400 opacity-80  shadow-lg  md:p-10 transition-all duration-700">
+      <div className="relative overflow-hidden bg-gradient-to-r from-orange-100 via-orange-50 to-white -shadow-xl  md:p-10 transition-all duration-700">
         
         {/* Quote */}
         <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-6">
@@ -815,7 +815,7 @@ function TestimonialSlider() {
           <img
             src={image}
             alt={name}
-            className="w-14 h-14 rounded-full object-cover border-2 border-white shadow"
+            className="w-14 h-14 object-cover rounded shadow"
           />
           <div>
             <h4 className="font-semibold text-gray-900">{name}</h4>
