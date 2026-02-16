@@ -769,19 +769,19 @@ const testimonials = [
   {
     name: "David S.",
     role: "CEO",
-    image: "/Person1.png",
+    image: "/person1.png",
     text: "Chakra helped us secure the funding we needed to grow our business. Highly recommended!",
   },
   {
     name: "Anita R.",
     role: "Founder",
-    image: "/Person2.png",
+    image: "/person2.png",
     text: "Professional team and transparent process. Chakra made financing stress-free.",
   },
   {
     name: "Rahul K.",
     role: "Managing Director",
-    image: "/Person3.png",
+    image: "/person3.png",
     text: "Fast approvals and great support throughout. Excellent experience with Chakra.",
   },
 ];
