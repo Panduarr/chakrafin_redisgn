@@ -126,13 +126,12 @@ function AboutSection() {
         <div className="max-w-5xl mx-auto text-base mb-10 text-justify">
           <p className="text-gray-700  mb-4 leading-relaxed">
             <p>
-              About Us – Chakra Financial Services At Chakra Financial Services,
-              we believe financial support should be simple, transparent, and
-              accessible to everyone. As a trusted loan advisory and financial
-              services company operating across India, we are committed to
-              helping individuals, families, entrepreneurs, and businesses
-              secure the right financial solutions to achieve their goals with
-              confidence.
+              At Chakra Financial Services, we believe financial support should
+              be simple, transparent, and accessible to everyone. As a trusted
+              loan advisory and financial services company operating across
+              India, we are committed to helping individuals, families,
+              entrepreneurs, and businesses secure the right financial solutions
+              to achieve their goals with confidence.
             </p>
             <br />
             <p>
@@ -206,7 +205,7 @@ function AboutSection() {
             {/* Image */}
             <div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden ring-4 ring-[#F47C20]/30">
               <Image
-                src="/aboutusimg3.webp"
+                src="/keyperson.png"
                 alt="Key Person"
                 fill
                 className="object-cover"
@@ -220,25 +219,23 @@ function AboutSection() {
               </h3>
               <p className="text-[#F47C20] font-medium mb-4">
                 Chakra Financial Services
-                
               </p>
 
               {/* Always visible short text */}
               <p className="text-gray-700 mb-4 leading-relaxed">
-                C S Reddy, the founder of Chakra Financial Services, brings
-                  over 10 years of expertise in the financial sector.
+                C S Reddy, the founder of Chakra Financial Services, brings over
+                10 years of expertise in the financial sector.
               </p>
 
               {/* Toggle text */}
               {showKeyMore && (
                 <p className="text-gray-700 mb-4 leading-relaxed">
-                   With a
-                  strong focus on customer-centric solutions and transparent
-                  loan services, Reddy established the company to help
-                  individuals and businesses access the right financial support
-                  at the right time. His deep industry knowledge and commitment
-                  to excellence have been instrumental in building a trusted
-                  name in the finance industry across India.
+                  With a strong focus on customer-centric solutions and
+                  transparent loan services, Reddy established the company to
+                  help individuals and businesses access the right financial
+                  support at the right time. His deep industry knowledge and
+                  commitment to excellence have been instrumental in building a
+                  trusted name in the finance industry across India.
                 </p>
               )}
 
