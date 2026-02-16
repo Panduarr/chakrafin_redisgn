@@ -167,7 +167,7 @@ function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-2 text-center px-4 py-2 rounded-full bg-[#F47C20] text-white font-semibold"
               >
-                Get Instant Loan
+               Work With Us
               </Link>
             </ul>
           </div>
