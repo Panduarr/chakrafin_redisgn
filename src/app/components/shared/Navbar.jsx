@@ -127,7 +127,7 @@ function Navbar() {
 
             {/* CTA */}
             <Link
-              href="/instantloan"
+              href="/workwithus"
               onClick={() => setOpen(false)}
               className="mt-2 text-center px-4 py-2 rounded-full bg-[#F47C20] text-white font-semibold"
             >
