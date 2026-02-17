@@ -38,7 +38,6 @@ function Footer({ active = "home" }) {
     { label: "Services", href: "/#services", match: "#services" },
     { label: "Clients", href: "/#clients", match: "#clients" },
     { label: "Contact Us", href: "/#contact", match: "#contact" },
-    { label: "Get Instant Loan", href: "/instantloan", match: "/instantloan" },
   ];
 
   const isActive = (item) => {

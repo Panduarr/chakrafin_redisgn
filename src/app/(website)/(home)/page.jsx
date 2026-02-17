@@ -2,108 +2,79 @@
 import Footer from "@/app/components/shared/Footer";
 import Navbar from "@/app/components/shared/Navbar";
 import { useEffect, useRef, useState } from "react";
+import { ShieldCheck, Users, BadgeCheck } from "lucide-react";
+import Image from "next/image";
+
+
 
 function Home() {
   return (
     <div id="home" className="bg-blue-50 ">
       <Navbar active="home" />
+      <div className="h-16"></div>
       <Banner />
       <AboutSection />
       <OurServices />
-      <ServicesCarousel />
+      <ClientsCarousel />
       <WhyChooseChakra />
       <TestimonialSlider />
       <Footer active="home" />
+      <div>
+        <div>
+        <iframe src="https://forms.gle/vPs2cHMX5G8ZG22J6" width="640" height="1386" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+      </div>
     </div>
   );
 }
 
 export default Home;
 
+
+
 export const Banner = () => {
-  const banners = [
-    {
-      id: 1,
-      image: "https://chakrafin.com/images/bannerimg5.jpg",
-      title: "Banner image",
-    },
-    {
-      id: 2,
-      image: "https://chakrafin.com/images/bannerimg4.avif",
-      title: "Banner image",
-    },
-    {
-      id: 3,
-      image: "https://chakrafin.com/images/bannerimg2.avif",
-      title: "Banner image",
-    },
-    {
-      id: 4,
-      image: "https://chakrafin.com/images/bannerimg3.jpg",
-      title: "Banner image",
-    },
-  ];
-  const [visionOpen, setVisionOpen] = useState(false);
-  const [missionOpen, setMissionOpen] = useState(false);
-  const [open, setOpen] = useState(false);
-
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % banners.length);
-    }, 4000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const [active, setActive] = useState(null);
-
-  const toggle = (id) => {
-    setActive(active === id ? null : id);
-  };
-
   return (
-    <>
-      <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]  pt-10">
-        <img
-          src="/home_Banner.png"
-          alt="Home Banner"
-          className="w-full h-full object-fill"
-        />
+    <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
+      
+      {/* Background Image */}
+      <img
+        src="/home_Banner.png"
+        alt="Home Banner"
+        className="absolute inset-0 w-full h-full object-fill"
 
-        {/* ================= DARK OVERLAY ================= */}
-        <div className="absolute inset-0" />
+        // className="absolute inset-0 w-full h-[130vh] object-cover"
+      />
 
-        {/* ================= TEXT CONTENT ================= */}
-        <div className="absolute top-25 lg:top-50  flex items-center">
-          <div className="w-full">
-            <div className=" max-w-7xl mx-auto px-4 md:px-12">
-              <h2 className="text-xl md:text-5xl font-bold text-[#1F6FD8] leading-tight max-w-2xl">
-                Empowering Your Financial Success
-              </h2>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/10" />
 
-              <p className="mt-4 text-base md:text-sm text-[#1F6FD8]/90 max-w-xl leading-relaxed">
-                Trusted Solutions for Your Business and Personal Needs
-              </p>
+      {/* Content */}
+      <div className="relative z-10 flex items-center h-full">
+        <div className="max-w-7xl mx-auto px-4 md:px-12 w-full">
+          
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[#1f6fd8] leading-tight max-w-2xl">
+            Empowering Your Financial Success
+          </h2>
 
-              <div className="mt-6">
-                <a
-                  href="#contact"
-                  className="px-6 py-3 rounded-xl bg-white text-[#F47C20] font-semibold hover:scale-[1.03] transition w-fit"
-                >
-                  Get a Free Consultation
-                </a>
-              </div>
-            </div>
+          <p className="mt-4 text-sm md:text-lg text-[#1f6fd8]/90 max-w-xl leading-relaxed">
+            Trusted Solutions for Your Business and Personal Needs
+          </p>
+
+          <div className="mt-6">
+            <a
+              href="#contact"
+              className="inline-block px-6 py-3 rounded-xl bg-white text-[#F47C20] font-semibold hover:scale-105 transition"
+            >
+              Get a Free Consultation
+            </a>
           </div>
-        </div>
 
-        {/* ================= CONTROLS LAYER ================= */}
+        </div>
       </div>
-    </>
+    </section>
   );
 };
+
 
 // About Section
 
@@ -307,7 +278,8 @@ const InfoCard = ({ title, text, color }) => (
 );
 
 // our services
-const servicesdata = [
+function OurServices() {
+  const servicesdata = [
   {
     id: 1,
     title: "Personal Loans",
@@ -372,8 +344,6 @@ const servicesdata = [
     long: "At Chakra Financial Services, we understand the importance of trust and security in business transactions. Our Letter of Credit (LC), Bank Guarantee (BG), and Standby Letter of Credit (SBLC) facilities provide strong financial backing to ensure smooth and secure domestic and international trade. These instruments help buyers and sellers fulfill contractual obligations with confidence and peace of mind.",
   },
 ];
-
-function OurServices() {
   const [openId, setOpenId] = useState(null);
 
   return (
@@ -435,8 +405,9 @@ function OurServices() {
 }
 
 // our clients carousel
-import Image from "next/image";
-const services = [
+export const ClientsCarousel = () => {
+
+  const services = [
   { id: 1, title: "Bank 1", image: "/bank1.png" },
   { id: 2, title: "Bank 2", image: "/bank2.png" },
   { id: 3, title: "Bank 3", image: "/bank3.png" },
@@ -446,8 +417,7 @@ const services = [
   { id: 7, title: "Bank 7", image: "/bank7.png" },
   { id: 8, title: "Bank 8", image: "/bank8.png" },
 ];
-/* ================= COMPONENT ================= */
-export const ServicesCarousel = () => {
+
   const trackRef = useRef(null);
   const [offset, setOffset] = useState(0);
   const duplicatedServices = [...services, ...services];
@@ -511,134 +481,8 @@ export const ServicesCarousel = () => {
   );
 };
 
-// Contact
 
-
-
-
-// import { ShieldCheck, Users, BadgeCheck } from "lucide-react";
-
-// function WhyChooseChakra() {
-//   return (
-//     <section className="relative w-full py-24 overflow-hidden">
-      
-//       {/* Background Image */}
-//       <div
-//         className="absolute inset-0 bg-cover bg-center"
-//         style={{ backgroundImage: "url('/whywechoose.png')" }}
-//       />
-
-//       {/* Gradient Overlay */}
-//      <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/50 to-white/30"></div>
-
-//       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-//         {/* LEFT SIDE */}
-//         <div>
-//           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-12">
-//             Why Choose Chakra?
-//           </h2>
-
-//           <div className="space-y-10">
-
-//             {/* Item 1 */}
-//             <div className="flex items-start gap-5">
-//               <div className="p-4 rounded-xl bg-orange-100 text-orange-500 shadow-md">
-//                 <Users size={28} />
-//               </div>
-//               <div>
-//                 <h4 className="text-lg font-semibold text-gray-900">
-//                   Experienced Professionals
-//                 </h4>
-//                 <p className="text-gray-600 mt-1">
-//                   Years of Expertise in Finance
-//                 </p>
-//               </div>
-//             </div>
-
-//             {/* Item 2 */}
-//             <div className="flex items-start gap-5">
-//               <div className="p-4 rounded-xl bg-blue-100 text-blue-600 shadow-md">
-//                 <ShieldCheck size={28} />
-//               </div>
-//               <div>
-//                 <h4 className="text-lg font-semibold text-gray-900">
-//                   Reliable & Secure
-//                 </h4>
-//                 <p className="text-gray-600 mt-1">
-//                   Safe & Trustworthy Transactions
-//                 </p>
-//               </div>
-//             </div>
-
-//             {/* Item 3 */}
-//             <div className="flex items-start gap-5">
-//               <div className="p-4 rounded-xl bg-yellow-100 text-yellow-600 shadow-md">
-//                 <BadgeCheck size={28} />
-//               </div>
-//               <div>
-//                 <h4 className="text-lg font-semibold text-gray-900">
-//                   Customer First Approach
-//                 </h4>
-//                 <p className="text-gray-600 mt-1">
-//                   Your Goals, Our Priority
-//                 </p>
-//               </div>
-//             </div>
-
-//           </div>
-//         </div>
-
-//         {/* RIGHT SIDE FORM */}
-//         <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-10 max-w-md w-full mx-auto border border-gray-200">
-          
-//           <h3 className="text-2xl font-semibold text-blue-900 mb-8">
-//             Get in Touch
-//           </h3>
-
-//           <form className="space-y-5">
-
-//             <input
-//               type="text"
-//               placeholder="Your Name"
-//               className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
-//             />
-
-//             <input
-//               type="email"
-//               placeholder="Email Address"
-//               className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
-//             />
-
-//             <input
-//               type="tel"
-//               placeholder="Phone Number"
-//               className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
-//             />
-
-//             <textarea
-//               rows="4"
-//               placeholder="Message"
-//               className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
-//             ></textarea>
-
-//             <button
-//               type="submit"
-//               className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-300"
-//             >
-//               Request Consultation
-//             </button>
-
-//           </form>
-//         </div>
-
-//       </div>
-//     </section>
-//   );
-// }
-
-import { ShieldCheck, Users, BadgeCheck } from "lucide-react";
-
+// why choose
 function WhyChooseChakra() {
   return (
     <section className="relative w-full px-4 sm:px-6 lg:px-18 pt-12 pb-20 overflow-hidden">
@@ -759,13 +603,10 @@ function WhyChooseChakra() {
   );
 }
 
-// review
+// testimonials
+function TestimonialSlider() {
 
-
-
-
-
-const testimonials = [
+  const testimonials = [
   {
     name: "David S.",
     role: "CEO",
@@ -786,7 +627,7 @@ const testimonials = [
   },
 ];
 
-function TestimonialSlider() {
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
