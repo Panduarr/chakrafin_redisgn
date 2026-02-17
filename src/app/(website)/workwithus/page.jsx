@@ -80,7 +80,7 @@ function Forms() {
       {/* RIGHT SIDE — FORM */}
       <div className="w-full rounded-xl shadow-lg overflow-hidden">
         <iframe
-          src="https://forms.gle/cYUwdbJc8zmPpe8B9"
+          src="https://forms.gle/B7ooPqRcdr18LsPQ7"
           className="w-full h-[1200px] sm:h-[1300px] lg:h-[1400px]"
           frameBorder="0"
           title="Google Form"
