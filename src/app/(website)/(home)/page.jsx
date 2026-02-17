@@ -19,11 +19,6 @@ function Home() {
       <WhyChooseChakra />
       <TestimonialSlider />
       <Footer active="home" />
-      <div>
-        <div>
-        <iframe src="https://forms.gle/vPs2cHMX5G8ZG22J6" width="640" height="1386" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
-      </div>
     </div>
   );
 }
@@ -96,7 +91,7 @@ function AboutSection() {
 
         {/* ---------- ABOUT CONTENT ---------- */}
         <div className="max-w-5xl mx-auto text-base mb-10 text-justify">
-          <p className="text-gray-700  mb-4 leading-relaxed">
+          <p className="text-gray-700  mb-4 ">
             <p>
               At Chakra Financial Services, we believe financial support should
               be simple, transparent, and accessible to everyone. As a trusted
@@ -408,15 +403,23 @@ function OurServices() {
 export const ClientsCarousel = () => {
 
   const services = [
-  { id: 1, title: "Bank 1", image: "/bank1.png" },
-  { id: 2, title: "Bank 2", image: "/bank2.png" },
-  { id: 3, title: "Bank 3", image: "/bank3.png" },
-  { id: 4, title: "Bank 4", image: "/bank4.png" },
-  { id: 5, title: "Bank 5", image: "/bank5.png" },
-  { id: 6, title: "Bank 6", image: "/bank6.png" },
-  { id: 7, title: "Bank 7", image: "/bank7.png" },
-  { id: 8, title: "Bank 8", image: "/bank8.png" },
+  { id: 1, title: "Godrej Capital", image: "/partners/godrej-capital.png" },
+  { id: 2, title: "Aditya Birla Housing Finance", image: "/partners/aditya-birla-housing.png" },
+  { id: 3, title: "LIC Housing Finance", image: "/partners/lic-housing.png" },
+  { id: 4, title: "Utkarsh Small Finance Bank", image: "/partners/utkarsh.png" },
+  { id: 5, title: "Tata Capital", image: "/partners/tata-capital.png" },
+  { id: 6, title: "Muthoot Finance", image: "/partners/muthoot.png" },
+  { id: 7, title: "Bajaj Housing Finance Limited", image: "/partners/bajaj-housing.png" },
+  { id: 8, title: "HDFC Bank", image: "/partners/hdfc.png" },
+  { id: 9, title: "ICICI Bank", image: "/partners/icici.png" },
+  { id: 10, title: "Axis Bank", image: "/partners/axis.png" },
+  { id: 11, title: "YES Bank", image: "/partners/yes.png" },
+  { id: 12, title: "Federal Bank", image: "/partners/federal.png" },
+  { id: 13, title: "Kotak Mahindra Bank", image: "/partners/kotak.png" },
+  { id: 14, title: "Piramal Finance", image: "/partners/piramal.png" },
+  { id: 15, title: "Poonawalla Fincorp", image: "/partners/poonawalla.png" },
 ];
+
 
   const trackRef = useRef(null);
   const [offset, setOffset] = useState(0);
@@ -485,7 +488,7 @@ export const ClientsCarousel = () => {
 // why choose
 function WhyChooseChakra() {
   return (
-    <section className="relative w-full px-4 sm:px-6 lg:px-18 pt-12 pb-20 overflow-hidden">
+    <section id="contact" className="relative w-full px-4 sm:px-6 lg:px-18 pt-12 pb-20 overflow-hidden">
 
       {/* Background Image */}
       <div

@@ -54,56 +54,10 @@ function Navbar() {
   };
 
   return (
-    <>
-      {/* Top Bar (Desktop Only) */}
-      {/* <div className="max-w-7xl mx-auto">
-        <div className="lg:fixed lg:w-full lg:z-5 hidden  md:flex bg-white justify-between px-10 py-1 text-sm max-w-7xl mx-auto border-b-2 border-[#1E6FB8]  ">
-          <div className="flex gap-4 text-[#F47C20]">
-            <a
-              className="px-2  border-x border-black/40 hover:opacity-80"
-              href="https://www.facebook.com/people/Chakra-Financial-Services/61587570840796/"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              className="px-2 border-x border-black/40 hover:opacity-80"
-              href="https://www.instagram.com/chakrafinancialservices?igsh=N2Y0ajIwYjRyY2h6"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              className="px-2 border-x border-black/40 hover:opacity-80"
-              href="https://www.linkedin.com/"
-            >
-              <FaLinkedinIn />
-            </a>
-          </div>
-
-          <div className="flex gap-4 text-[#1E6FB8] ">
-            <a
-              className="px-2 border-x border-black/40 hover:opacity-80"
-              href="https://web.whatsapp.com/"
-            >
-              <span className="flex items-center">
-                <FaWhatsapp /> +91 93920 37809
-              </span>
-            </a>
-            <a
-              className="px-2 border-x border-black/40 hover:opacity-80"
-              href="https://mail.google.com/"
-            >
-              <span className="flex items-center">
-                <IoMailSharp /> info@chakrafin.com
-              </span>
-            </a>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Main Navbar */}
-      <div className="bg-white opacity-80 shadow-sm w-full fixed lg:w-full z-2 ">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-1">
-          {/* Logo */}
+    <header className="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-2">
+        {/* Logo */}
+        <Link href="/">
           <img
             src="https://chakrafin.com/images/logo.png"
             alt="Chakrafin Logo"
@@ -132,7 +86,7 @@ function Navbar() {
           {/* CTA */}
           <li>
             <Link
-              href="/instantloan"
+              href="/workwithus"
               className="ml-4 px-6 py-2 rounded-full text-sm font-semibold bg-[#F47C20] text-white hover:scale-[1.03] transition"
             >
               Work With Us
@@ -150,19 +104,17 @@ function Navbar() {
         </button>
       </div>
 
-        {/* Mobile Menu */}
-        {open && (
-          <div className="md:hidden bg-white border-t border-gray-200 fixed">
-            <ul className="flex flex-col gap-2 p-4 text-base font-medium">
-              {navLinks.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    onClick={() => {
-                      setHash(item.match.startsWith("#") ? item.match : "");
-                      setOpen(false);
-                    }}
-                    className={`block px-4 py-2 rounded-lg ${
+      {/* Mobile Menu */}
+      {open && (
+        <div className="lg:hidden bg-white border-t border-gray-200">
+          <ul className="flex flex-col gap-2 p-4 text-base font-medium">
+            {navLinks.map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  onClick={() => handleClick(item)}
+                  className={`block px-4 py-2 rounded-lg transition
+                    ${
                       isActive(item)
                         ? "bg-[#1E6FB8] text-white"
                         : "text-gray-700 hover:bg-gray-100"
