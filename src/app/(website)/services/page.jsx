@@ -110,12 +110,13 @@ export default function ServicesPage() {
           {servicesdata.map((service, index) => (
             <div
               key={service.id}
-              className={`grid lg:grid-cols-2 gap-12 items-center ${
-                index % 2 !== 0 ? "lg:flex-row-reverse" : ""
-              }`}
+              className="grid lg:grid-cols-2 gap-12 items-center"
             >
               {/* IMAGE */}
-              <div className="relative h-auto rounded-3xl overflow-hidden shadow-xl">
+              <div
+                className={`relative rounded-3xl overflow-hidden shadow-xl 
+          ${index % 2 !== 0 ? "lg:order-2" : "lg:order-1"}`}
+              >
                 <img
                   src={service.img}
                   alt={service.title}
@@ -124,7 +125,9 @@ export default function ServicesPage() {
               </div>
 
               {/* CONTENT */}
-              <div>
+              <div
+                className={`${index % 2 !== 0 ? "lg:order-1" : "lg:order-2"}`}
+              >
                 <h3 className="text-3xl font-bold text-[#F47C20] mb-4">
                   {service.title}
                 </h3>
