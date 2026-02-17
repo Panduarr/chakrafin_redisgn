@@ -559,7 +559,8 @@ function WhyChooseChakra() {
         </div>
 
         {/* RIGHT FORM */}
-        <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 w-full max-w-md mx-auto border border-gray-200">
+        <div className="lg:pl-30">
+        <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 md:p-6 w-full max-w-md mx-auto border border-gray-200">
           
           <h3 className="text-xl sm:text-2xl font-semibold text-blue-900 mb-6 sm:mb-8">
             Get in Touch
@@ -595,10 +596,11 @@ function WhyChooseChakra() {
               type="submit"
               className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-300"
             >
-              Request Consultation
+              <a href="/contact">Request Consultation</a>
             </button>
 
           </form>
+        </div>
         </div>
 
       </div>

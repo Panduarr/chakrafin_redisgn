@@ -78,7 +78,7 @@ function Forms() {
       </div>
 
       {/* RIGHT SIDE — FORM */}
-      <div className="w-full rounded-xl shadow-lg overflow-hidden">
+      <div className="w-full rounded-xl shadow-lg overflow-hidden h-[1020px] lg:h-[1220px]">
         <iframe
           src="https://forms.gle/B7ooPqRcdr18LsPQ7"
           className="w-full h-[1200px] sm:h-[1300px] lg:h-[1400px]"

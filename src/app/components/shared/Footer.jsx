@@ -4,12 +4,12 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
-  FaYoutube,
   FaMapMarkerAlt,
   FaEnvelope,
   FaPhoneAlt,
+  FaLinkedinIn,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 function Footer({ active = "home" }) {
@@ -124,13 +124,7 @@ function Footer({ active = "home" }) {
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg hover:bg-[#F47C20] transition cursor-pointer"
                 href="https://x.com/"
               >
-                <FaTwitter />
-              </a>
-              <a
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg hover:bg-[#F47C20] transition cursor-pointer"
-                href="https://www.youtube.com/"
-              >
-                <FaYoutube />
+                <FaLinkedinIn />
               </a>
               <a
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg hover:bg-[#F47C20] transition cursor-pointer"
@@ -190,28 +184,49 @@ function Footer({ active = "home" }) {
       </div>
 
       {/* WHATSAPP BUTTON */}
-      <a
-        href="https://wa.me/919030972851"
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-105 transition"
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          alt="WhatsApp"
-          className="w-6 h-6"
-        />
-      </a>
+      <div className="fixed bottom-8 right-8 group z-50">
+        <div className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl cursor-pointer shadow-lg">
+          <a
+            href="https://wa.me/919030972851"
+            target="_blank"
+            rel="noreferrer"
+            className="w-full h-full flex items-center justify-center"
+          >
+            <FaWhatsapp />
+          </a>
+        </div>
+
+        {/* Facebook */}
+        <a
+          href="https://www.facebook.com/people/Chakra-Financial-Services/61587570840796/"
+          target="_blank"
+          rel="noreferrer"
+          className="absolute w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-x-[90px] group-hover:-translate-y-[10px] transition-all duration-300"
+        >
+          <FaFacebookF />
+        </a>
+
+        {/* Instagram */}
+        <a
+          href="https://www.instagram.com/chakrafinancialservices?igsh=N2Y0ajIwYjRyY2h6"
+          target="_blank"
+          rel="noreferrer"
+          className="absolute w-12 h-12 rounded-full bg-pink-500 text-white flex items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-x-[65px] group-hover:-translate-y-[65px] transition-all duration-300 delay-75"
+        >
+          <FaInstagram />
+        </a>
+
+        {/* LinkedIn */}
+        <a
+          href="/"
+          target="_blank"
+          rel="noreferrer"
+          className="absolute w-12 h-12 rounded-full bg-blue-700 text-white flex items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-x-[5px] group-hover:-translate-y-[90px] transition-all duration-300 delay-150"
+        >
+          <FaLinkedinIn />
+        </a>
+      </div>
     </footer>
   );
 }
 export default Footer;
-
-/* SOCIAL ICON */
-function SocialIcon({ icon }) {
-  return (
-    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg hover:bg-[#F47C20] transition cursor-pointer">
-      {icon}
-    </div>
-  );
-}

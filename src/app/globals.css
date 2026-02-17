@@ -29,3 +29,52 @@ body {
   @apply w-full rounded-lg border border-gray-300 px-4 py-2
   text-sm focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
+
+
+
+
+.fab-container {
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+  width: 60px;
+  height: 60px;
+}
+
+.fab {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.main {
+  background: #25d366;
+  z-index: 10;
+}
+
+/* Hidden icons initially */
+.facebook,
+.instagram,
+.linkedin {
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+/* Hover Trigger */
+.fab-container:hover .facebook,
+.fab-container:hover .instagram,
+.fab-container:hover .linkedin {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+

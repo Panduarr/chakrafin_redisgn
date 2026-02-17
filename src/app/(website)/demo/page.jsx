@@ -124,7 +124,6 @@
 //   );
 // };
 
-
 //  {/* Banner */}
 //       {/* <div className="relative w-full min-h-[60vh] lg:min-h-[70vh]  lg:top-17  overflow-hidden max-w-7xl mx-auto"> */}
 //       {/* ================= IMAGES ================= */}
@@ -148,8 +147,8 @@
 //             onClick={() =>
 //               setIndex((index - 1 + banners.length) % banners.length)
 //             }
-//             className="pointer-events-auto absolute left-6 top-1/2 -translate-y-1/2 
-//                  bg-black/40 hover:bg-black/60 text-white 
+//             className="pointer-events-auto absolute left-6 top-1/2 -translate-y-1/2
+//                  bg-black/40 hover:bg-black/60 text-white
 //                  w-10 h-10 rounded-full flex items-center justify-center"
 //           >
 //             ❮
@@ -158,8 +157,8 @@
 //           {/* Next */}
 //           {/* <button
 //             onClick={() => setIndex((index + 1) % banners.length)}
-//             className="pointer-events-auto absolute right-6 top-1/2 -translate-y-1/2 
-//                  bg-black/40 hover:bg-black/60 text-white 
+//             className="pointer-events-auto absolute right-6 top-1/2 -translate-y-1/2
+//                  bg-black/40 hover:bg-black/60 text-white
 //                  w-10 h-10 rounded-full flex items-center justify-center"
 //           >
 //             ❯
@@ -386,12 +385,258 @@
 //     </section>
 //   );
 // }
- import React from 'react'
- 
- function page() {
-   return (
-     <div>page</div>
-   )
- }
- 
- export default page
+
+"use client";
+import React from "react";
+
+function page() {
+  return (
+    <div>
+      <FloatingSocials />
+      <ClientReviews />
+    </div>
+  );
+}
+
+export default page;
+import { useState } from "react";
+import {
+  FaWhatsapp,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+
+function FloatingSocials() {
+  const [open, setOpen] = useState(false);
+  const radius = 120;
+
+  return (
+    <div
+      className="fixed bottom-8 right-8 z-50"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      {/* WhatsApp Main */}
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="relative w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg"
+      >
+        <FaWhatsapp />
+      </button>
+
+      {/* Facebook (BOTTOM) */}
+      <a
+        href="https://www.facebook.com/people/Chakra-Financial-Services/61587570840796/"
+        target="_blank"
+        rel="noreferrer"
+        className={`absolute top-1/2 left-1/2 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center transition-all duration-300 ${
+          open ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
+        style={{
+          transform: open
+            ? `rotate(190deg) translate(${radius}px) rotate(-190deg)`
+            : "translate(-50%, -50%)",
+        }}
+      >
+        <FaFacebookF />
+      </a>
+
+      {/* Instagram (MIDDLE) */}
+      <a
+        href="https://www.instagram.com/chakrafinancialservices?igsh=N2Y0ajIwYjRyY2h6"
+        target="_blank"
+        rel="noreferrer"
+        className={`absolute top-1/2 left-1/2 w-12 h-12 rounded-full bg-pink-500 text-white flex items-center justify-center transition-all duration-300 delay-75 ${
+          open ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
+        style={{
+          transform: open
+            ? `rotate(220deg) translate(${radius}px) rotate(-220deg)`
+            : "translate(-50%, -50%)",
+        }}
+      >
+        <FaInstagram />
+      </a>
+
+      {/* LinkedIn (TOP) */}
+      <a
+        href="/"
+        target="_blank"
+        rel="noreferrer"
+        className={`absolute top-1/2 left-1/2 w-12 h-12 rounded-full bg-blue-700 text-white flex items-center justify-center transition-all duration-300 delay-150 ${
+          open ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
+        style={{
+          transform: open
+            ? `rotate(250deg) translate(${radius}px) rotate(-250deg)`
+            : "translate(-50%, -50%)",
+        }}
+      >
+        <FaLinkedinIn />
+      </a>
+    </div>
+  );
+}
+
+
+
+
+import { useEffect } from "react";
+import Image from "next/image";
+import { Star } from "lucide-react";
+
+const reviews = [
+  {
+    name: "Shivani Sharma",
+    role: "CEO",
+    image: "/reviewer.jpg",
+    text:
+      "Working with Aadi Trademark Private Limited was an absolute game-changer for our business. Their professionalism, creativity, and attention to detail exceeded expectations.",
+  },
+  {
+    name: "Rahul Mehta",
+    role: "Founder",
+    image: "/reviewer2.jpg",
+    text:
+      "The team delivered outstanding quality with excellent communication. Everything was smooth, professional, and on time.",
+  },
+  {
+    name: "Anita Verma",
+    role: "Director",
+    image: "/reviewer3.jpg",
+    text:
+      "Highly reliable and skilled team. They understood our vision perfectly and delivered beyond expectations.",
+  },
+];
+function ClientReviews() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % reviews.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="bg-[#F8FAFC] py-24">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+        {/* LEFT CONTENT */}
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-2 h-2 bg-orange-500 rounded-full" />
+            <p className="text-sm font-medium text-gray-600">
+              Client Review
+            </p>
+          </div>
+
+          <h2 className="text-4xl lg:text-5xl font-extrabold leading-tight">
+            What our{" "}
+            <span className="bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
+              clients
+            </span>{" "}
+            have to say about <br />
+            working with us
+          </h2>
+        </div>
+
+        {/* RIGHT CARD */}
+        <div className="relative bg-white rounded-3xl p-10 shadow-xl">
+
+          {/* TOP BAR (EXACT LAYOUT) */}
+          <div className="flex items-center justify-between mb-8">
+
+            {/* Google Logo */}
+            <Image src="/google.png" alt="Google" width={90} height={30} />
+
+            {/* Avatars + Rating (SIDE BY SIDE) */}
+            <div className="flex items-center gap-4">
+
+              {/* Avatars */}
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <Image
+                    key={i}
+                    src={`/user${i}.jpg`}
+                    alt="User"
+                    width={36}
+                    height={36}
+                    className="rounded-full border-2 border-white"
+                  />
+                ))}
+              </div>
+
+              {/* Rating */}
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-lg">4.5</span>
+
+                  {/* Stars */}
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={18}
+                        className="fill-current"
+                        style={{
+                          color: i < 4 ? "#F97316" : "#2563EB",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500">
+                  (1000+ reviews)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* REVIEW SLIDER */}
+          <div className="relative min-h-[120px]">
+            {reviews.map((review, i) => (
+              <div
+                key={i}
+                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                  i === index
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-8"
+                }`}
+              >
+                <p className="text-gray-700 leading-relaxed">
+                  “{review.text}”
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* REVIEWER */}
+          <div className="flex items-center gap-4 mt-10">
+            <Image
+              src={reviews[index].image}
+              alt={reviews[index].name}
+              width={50}
+              height={50}
+              className="rounded-full"
+            />
+            <div>
+              <p className="font-semibold text-gray-900">
+                {reviews[index].name}
+              </p>
+              <p className="text-sm text-gray-500">
+                {reviews[index].role}
+              </p>
+            </div>
+          </div>
+
+          {/* COUNTER */}
+          <div className="absolute bottom-6 right-8 text-sm text-gray-400">
+            {index + 1} / {reviews.length}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
