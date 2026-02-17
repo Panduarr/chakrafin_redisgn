@@ -2,29 +2,28 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
-import { IoMailSharp } from "react-icons/io5";
 
 function Navbar() {
   const pathname = usePathname();
+
   const [open, setOpen] = useState(false);
   const [hash, setHash] = useState("");
   const [mounted, setMounted] = useState(false);
 
+  /* Ensure client-side rendering before accessing window */
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  /* Track current hash (#about, #services, etc.) */
   useEffect(() => {
     if (!mounted) return;
 
-    const update = () => setHash(window.location.hash || "");
-    update();
-    window.addEventListener("hashchange", update);
-    return () => window.removeEventListener("hashchange", update);
+    const updateHash = () => setHash(window.location.hash || "");
+    updateHash();
+
+    window.addEventListener("hashchange", updateHash);
+    return () => window.removeEventListener("hashchange", updateHash);
   }, [mounted]);
 
   if (!mounted) return null;
@@ -36,6 +35,7 @@ function Navbar() {
     { label: "Clients", href: "/#clients", match: "#clients" },
     { label: "Contact Us", href: "/#contact", match: "#contact" },
   ];
+
   const isActive = (item) => {
     if (item.match === "home") {
       return pathname === "/" && hash === "";
@@ -46,6 +46,11 @@ function Navbar() {
     }
 
     return pathname === item.match;
+  };
+
+  const handleClick = (item) => {
+    setHash(item.match.startsWith("#") ? item.match : "");
+    setOpen(false);
   };
 
   return (
@@ -96,53 +101,59 @@ function Navbar() {
       </div> */}
 
       {/* Main Navbar */}
-      <div className="bg-white opacity-90 shadow-sm w-full fixed lg:w-full z-2 ">
+      <div className="bg-white opacity-80 shadow-sm w-full fixed lg:w-full z-2 ">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-1">
           {/* Logo */}
           <img
-            className="w-32 lg:w-44 h-auto"
             src="https://chakrafin.com/images/logo.png"
-            alt="logo"
+            alt="Chakrafin Logo"
+            className="w-32 lg:w-44 h-auto"
           />
+        </Link>
 
-          {/* Desktop Menu */}
-          <ul className="hidden lg:flex lg:items-center gap-x-0 text-base font-medium">
-            {navLinks.map((item) => (
-              <li
-                key={item.label}
-                className={`px-5 py-2 rounded-full border-2 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] ${isActive(item) ? "text-[#1E6FB8] underline" : "text-gray-700 hover:text-[#F47C20]"}`}
-              >
-                <Link
-                  href={item.href}
-                  onClick={() =>
-                    setHash(item.match.startsWith("#") ? item.match : "")
-                  }
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-
-            <li className="">
-              <Link
-                href="/instantloan"
-                className="px-5 py-3 rounded-full text-sm font-semibold bg-[#F47C20] text-white hover:scale-[1.03] transition"
-              >
-                Work With Us
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex items-center text-base font-medium">
+          {navLinks.map((item) => (
+            <li
+              key={item.label}
+              className={`px-5 py-2 transition-all duration-300 hover:scale-[1.03]
+              ${
+                isActive(item)
+                  ? "text-[#1E6FB8] underline"
+                  : "text-gray-700 hover:text-[#F47C20]"
+              }`}
+            >
+              <Link href={item.href} onClick={() => handleClick(item)}>
+                {item.label}
               </Link>
             </li>
-          </ul>
+          ))}
 
-          {/* Mobile Hamburger */}
-          <button className="md:hidden text-2xl" onClick={() => setOpen(!open)}>
-            ☰
-          </button>
-        </div>
+          {/* CTA */}
+          <li>
+            <Link
+              href="/instantloan"
+              className="ml-4 px-6 py-2 rounded-full text-sm font-semibold bg-[#F47C20] text-white hover:scale-[1.03] transition"
+            >
+              Work With Us
+            </Link>
+          </li>
+        </ul>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="lg:hidden text-2xl"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle Menu"
+        >
+          ☰
+        </button>
+      </div>
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden bg-white border-t border-gray-200 w-full fixed">
-            <ul className="flex flex-col justify-center gap-2 p-4 text-base font-medium">
+          <div className="md:hidden bg-white border-t border-gray-200 fixed">
+            <ul className="flex flex-col gap-2 p-4 text-base font-medium">
               {navLinks.map((item) => (
                 <li key={item.label}>
                   <Link
@@ -156,24 +167,24 @@ function Navbar() {
                         ? "bg-[#1E6FB8] text-white"
                         : "text-gray-700 hover:bg-gray-100"
                     }`}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
 
-              <Link
-                href="/instantloan"
-                onClick={() => setOpen(false)}
-                className="mt-2 text-center px-4 py-2 rounded-full bg-[#F47C20] text-white font-semibold"
-              >
-               Work With Us
-              </Link>
-            </ul>
-          </div>
-        )}
-      </div>
-    </>
+            {/* CTA */}
+            <Link
+              href="/instantloan"
+              onClick={() => setOpen(false)}
+              className="mt-2 text-center px-4 py-2 rounded-full bg-[#F47C20] text-white font-semibold"
+            >
+              Work With Us
+            </Link>
+          </ul>
+        </div>
+      )}
+    </header>
   );
 }
 
