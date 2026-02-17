@@ -149,8 +149,8 @@ function Footer({ active = "home" }) {
 
             <ul className="space-y-4 text-sm text-white/90">
               <li className="flex gap-3">
-                <FaMapMarkerAlt className="mt-1 text-[#F47C20] text-3xl" />
-                <span>
+                <FaMapMarkerAlt className="mt-1 text-[#F47C20] text-5xl " />
+                <span className="text-balance">
                   Flat No.13/A, 1st Floor, Block C, Sri Sai Krupa Appartment,
                   Ramakrishna Nagar, Madeenaguda,Hyderabad-500049
                 </span>
