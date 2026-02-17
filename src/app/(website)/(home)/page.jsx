@@ -767,20 +767,20 @@ function WhyChooseChakra() {
 
 const testimonials = [
   {
-    name: "David S.",
-    role: "CEO",
+    name: "David S,",
+    role: "CEO.",
     image: "/person1.png",
     text: "Chakra helped us secure the funding we needed to grow our business. Highly recommended!",
   },
   {
-    name: "Anita R.",
-    role: "Founder",
+    name: "Anita R,",
+    role: "Founder.",
     image: "/person2.png",
     text: "Professional team and transparent process. Chakra made financing stress-free.",
   },
   {
-    name: "Rahul K.",
-    role: "Managing Director",
+    name: "Rahul K,",
+    role: "Managing Director.",
     image: "/person3.png",
     text: "Fast approvals and great support throughout. Excellent experience with Chakra.",
   },
@@ -818,8 +818,8 @@ function TestimonialSlider() {
             className="w-14 h-14 object-cover rounded shadow"
           />
           <div>
-            <h4 className="font-semibold text-gray-900">{name}</h4>
-            <p className="text-sm text-gray-500">{role}</p>
+            <h4 className="font-semibold text-gray-900">{name}<p className="text-sm text-gray-500">{role}</p> </h4>
+            
           </div>
         </div>
 

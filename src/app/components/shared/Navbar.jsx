@@ -96,7 +96,7 @@ function Navbar() {
       </div> */}
 
       {/* Main Navbar */}
-      <div className="bg-white opacity-80 shadow-sm w-full fixed lg:w-full z-2 ">
+      <div className="bg-white opacity-90 shadow-sm w-full fixed lg:w-full z-2 ">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-1">
           {/* Logo */}
           <img
@@ -141,8 +141,8 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden bg-white border-t border-gray-200 fixed">
-            <ul className="flex flex-col gap-2 p-4 text-base font-medium">
+          <div className="md:hidden bg-white border-t border-gray-200 w-full fixed">
+            <ul className="flex flex-col justify-center gap-2 p-4 text-base font-medium">
               {navLinks.map((item) => (
                 <li key={item.label}>
                   <Link

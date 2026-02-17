@@ -332,13 +332,57 @@
 //     </div>
 //   </div>
 // );
+import Image from "next/image";
 
-        import React from 'react'
-        
-        function page() {
-          return (
-            <div>demo</div>
-          )
-        }
-        
-        export default page
+const partners = [
+  { name: "HDFC Bank", logo: "/partners/hdfc.png" },
+  { name: "ICICI Bank", logo: "/partners/icici.png" },
+  { name: "Axis Bank", logo: "/partners/axis.png" },
+  { name: "RBL Bank", logo: "/partners/rbl.png" },
+  { name: "Bandhan Bank", logo: "/partners/bandhan.png" },
+  { name: "IndusInd Bank", logo: "/partners/indusind.png" },
+  { name: "YES Bank", logo: "/partners/yes.png" },
+  { name: "IDFC First Bank", logo: "/partners/idfc-first.png" },
+  { name: "Karur Vysya Bank", logo: "/partners/kvb.png" },
+  { name: "Aditya Birla Capital", logo: "/partners/aditya-birla.png" },
+  { name: "Bajaj Finserv", logo: "/partners/bajaj.png" },
+  { name: "Capital First", logo: "/partners/capital-first.png" },
+  { name: "LIC", logo: "/partners/lic.png" },
+  { name: "IDFC", logo: "/partners/idfc.png" },
+  { name: "ICICI Lombard", logo: "/partners/icici-lombard.png" },
+  { name: "IIFL", logo: "/partners/iifl.png" },
+  { name: "Fullerton India", logo: "/partners/fullerton.png" },
+];
+
+export default function LendingPartners() {
+  return (
+    <section className="bg-[#f7f7f7] py-20">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Title */}
+        <h2 className="text-3xl md:text-4xl font-semibold text-center text-gray-800 mb-16">
+          Our Lending Partners
+        </h2>
+
+        {/* Exact grid like image */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-10 justify-items-center">
+          {partners.map((partner, index) => (
+            <div
+              key={index}
+              className=" w-[180px] h-[90px] bg-white rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.06)] flex items-center justify-center"
+            >
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                width={120}
+                height={50}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
