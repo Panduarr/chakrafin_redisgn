@@ -151,14 +151,14 @@ function Footer({ active = "home" }) {
               <li className="flex gap-3">
                 <FaMapMarkerAlt className="mt-1 text-[#F47C20] text-3xl" />
                 <span>
-                  101, Sai Surya Residency, Madeenaguda, Hyderabad, Telangana,
-                  India - 500049
+                  Flat No.13/A, 1st Floor, Block C, Sri Sai Krupa Appartment,
+                  Ramakrishna Nagar, Madeenaguda,Hyderabad-500049
                 </span>
               </li>
 
               <li className="flex gap-3">
                 <FaEnvelope className="mt-1 text-[#F47C20]" />
-                <span>chakrafinservice@gmail.com</span>
+                <span>info@chakrafinances.com</span>
               </li>
 
               <li className="flex gap-3">
