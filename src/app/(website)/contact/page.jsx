@@ -6,8 +6,8 @@ export default function ContactUs() {
   return (
     <>
       <Navbar />
-      <div className="h-22"></div>
-      <section className="bg-white py-10 px-18">
+      <div className="lg:h-22"></div>
+      <section className="bg-white py-10 px-6 lg:px-18">
         <div className="max-w-7xl mx-auto px-6 text-center">
           {/* HEADER */}
           <p className="text-red-500 font-semibold tracking-wide mb-3">
