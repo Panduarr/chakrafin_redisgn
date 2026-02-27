@@ -43,7 +43,7 @@ export const Banner = () => {
       {/* Content */}
       <div className="relative z-10 flex items-center h-full">
         <div className="max-w-7xl mx-auto px-4 md:px-12 w-full">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[#1f6fd8] leading-tight max-w-2xl">
+          <h2 className="text-xl sm:text-3xl md:text-5xl font-bold text-[#1f6fd8] leading-tight max-w-[200px] sm:max-w-[1000px] lg:max-w-2xl">
             Empowering Your Financial Success
           </h2>
 
@@ -160,7 +160,7 @@ function AboutSection() {
         </div>
 
         {/* ---------- KEY PERSON ---------- */}
-        <div className="border-t-4 border-[#1E6FB8] rounded-3xl p-10 shadow-lg animate-top ">
+        <div className="border-t-4 border-[#1E6FB8] rounded-3xl p-10 shadow-lg animate-top hover:scale-[1.03]">
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Image */}
             <div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden ring-4 ring-[#F47C20]/30">
@@ -237,7 +237,7 @@ const ToggleSection = ({
 
   return (
     <div
-      className={`${animationClass} bg-white rounded-2xl p-8 shadow-md border-l-4 font-poppins`}
+      className={`${animationClass} bg-white rounded-2xl p-8 shadow-md border-l-4 font-poppins hover:scale-[1.03]`}
       style={{ borderColor: color }}
     >
       <h3 className="text-xl font-semibold mb-3" style={{ color }}>
@@ -542,11 +542,11 @@ function WhyChooseChakra() {
   return (
     <section
       id="contact"
-      className="relative w-full px-4 sm:px-6 lg:px-18 pt-12 pb-20 overflow-hidden"
+      className="relative w-full px-4 sm:px-6 lg:pl-16 pt-12 pb-20 overflow-hidden"
     >
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center brightness-110 contrast-110"
+        className="absolute -top-20 inset-0 bg-cover bg-center brightness-110 contrast-110"
         style={{ backgroundImage: "url('/whywechoose.png')" }}
       />
 
@@ -611,7 +611,7 @@ function WhyChooseChakra() {
 
         {/* RIGHT FORM */}
         <div className="lg:pl-30">
-          <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 md:p-6 w-full max-w-md mx-auto border border-gray-200">
+          <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 md:p-6 w-full max-w-xl mx-auto border border-gray-200">
             <h3 className="text-xl sm:text-2xl font-semibold text-blue-900 mb-6 sm:mb-8">
               Get in Touch
             </h3>
@@ -637,7 +637,7 @@ function WhyChooseChakra() {
 
               <div className="w-full max-w-md">
                 <label className="block mb-2 text-sm font-thin text-gray-700">
-                  Type Of Loan 
+                  Type Of Loan
                 </label>
                 <select className="w-full px-4 py-3 rounded-lg border border-gray-300  focus:outline-none focus:ring-2 focus:ring-[#1E6FB8]  focus:border-[#1E6FB8] text-gray-700">
                   <option value="">Choose</option>
@@ -653,18 +653,23 @@ function WhyChooseChakra() {
                 </select>
               </div>
 
-              
+              <input
+                type="amount"
+                placeholder="Required Amount"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm sm:text-base focus:ring-2 focus:ring-orange-400 outline-none"
+              />
+
               <textarea
-                rows="4"
+                rows="2"
                 placeholder="Message"
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm sm:text-base focus:ring-2 focus:ring-orange-400 outline-none"
               />
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-300"
+                className="px-4 text-center ml-30 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-300"
               >
-                <a href="/workwithus">Request Consultation</a>
+                <a href="/workwithus">Request Submit</a>
               </button>
             </form>
           </div>
@@ -766,7 +771,7 @@ function ClientReviews() {
     {
       name: "Radhika",
       role: "Director",
-      image: "/person1.png",
+      image: "/person.png",
       text: "We approached Chakra Financial Services for a mortgage loan against property. Their professional approach, multiple bank options, and strong follow-up helped us secure the loan on time. Trustworthy financial consultants for business and property loans.",
     },
     {
@@ -781,12 +786,18 @@ function ClientReviews() {
       image: "/person1.png",
       text: "The mortgage loan process was handled professionally with clear communication and timely updates. Good support from application to disbursement. Overall, a reliable and smooth experience.",
     },
+     {
+      name: "Bhuvaneswari",
+      role: "Saftware Employee",
+      image: "/person.png",
+      text: "I was worried about documentation, but everything was handled professionally. Excellent support and quick approval.",
+    },
   ];
   const Avatars = [
     "/person1.png",
-    "/person2.png",
-    "/person3.png",
+    "/person.png",
     "/person1.png",
+    "/person.png",
   ];
   const [index, setIndex] = useState(0);
   const [rating, setRating] = useState(0);
@@ -828,7 +839,7 @@ function ClientReviews() {
   }, []);
 
   return (
-    <section className=" bg-gradient-to-r from-orange-100 via-blue-100 to-white lg:mx-18 my-5 rounded-2xl shadow-2xl font-poppins font-normal ">
+    <section className=" bg-gradient-to-r from-orange-100 via-blue-100 to-white lg:px-18 py-4 rounded-2xl shadow-2xl font-poppins font-normal ">
       <div className="max-w-7xl mx-auto px-6 py-4 grid grid-rows-1 lg:grid-cols-2 lg:gap-16 items-center">
         {/* LEFT CONTENT */}
         <div>

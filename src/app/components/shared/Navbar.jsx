@@ -21,6 +21,8 @@ function Navbar() {
     { label: "Services", href: "/#services", match: "#services" },
     { label: "Clients", href: "/#clients", match: "#clients" },
     { label: "Contact Us", href: "/contact", match: "contact" },
+    { label: "Login", href: "/contact", match: "contact" },
+
   ];
 
   const isActive = (item) => {
@@ -42,13 +44,13 @@ function Navbar() {
 
   return (
     <header className="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10 py-2">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-10">
         {/* Logo */}
         <Link href="/">
           <img
-            src="https://chakrafin.com/images/logo.png"
+            src="/logo.png"
             alt="Chakrafin Logo"
-            className="w-32 lg:w-44 h-auto"
+            className="w-32 lg:w-55 h-22 z-10"
           />
         </Link>
 
@@ -74,7 +76,7 @@ function Navbar() {
           <li>
             <Link
               href="/workwithus"
-              className="ml-4 px-6 py-2 rounded-full text-sm font-semibold bg-[#F47C20] text-white hover:scale-[1.03] transition"
+              className="ml-4 px-6 py-2 rounded-full text-sm font-semibold bg-orange-300 text-blue-500 hover:scale-[1.03] transition"
             >
               Work With Us
             </Link>
