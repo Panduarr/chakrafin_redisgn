@@ -5,28 +5,15 @@ import { usePathname } from "next/navigation";
 
 function Navbar() {
   const pathname = usePathname();
-
   const [open, setOpen] = useState(false);
   const [hash, setHash] = useState("");
-  const [mounted, setMounted] = useState(false);
-
-  /* Ensure client-side rendering before accessing window */
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  /* Track current hash (#about, #services, etc.) */
-  useEffect(() => {
-    if (!mounted) return;
-
     const updateHash = () => setHash(window.location.hash || "");
     updateHash();
 
     window.addEventListener("hashchange", updateHash);
     return () => window.removeEventListener("hashchange", updateHash);
-  }, [mounted]);
-
-  if (!mounted) return null;
+  }, []);
 
   const navLinks = [
     { label: "Home", href: "/", match: "home" },

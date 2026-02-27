@@ -142,6 +142,7 @@ function AboutSection() {
             opportunities that support growth and security. By combining professional expertise with a
             human approach, we aim to simplify complex financial processes and create meaningful
             financial progress for every client we serve."
+            animationClass="animate-left"
           />
 
           <ToggleSection
@@ -154,11 +155,12 @@ function AboutSection() {
             financial advisory to every client we serve, enabling sustainable growth for individuals and
             enterprises alike.
             Through trust-driven relationships and value-based services, we aim to contribute to longterm economic well-being"
+            animationClass="animate-right"
           />
         </div>
 
         {/* ---------- KEY PERSON ---------- */}
-        <div className="border-t-4 border-[#1E6FB8] rounded-3xl p-10 shadow-lg ">
+        <div className="border-t-4 border-[#1E6FB8] rounded-3xl p-10 shadow-lg animate-top ">
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Image */}
             <div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden ring-4 ring-[#F47C20]/30">
@@ -223,12 +225,19 @@ function AboutSection() {
 }
 
 /* ---------- TOGGLE SECTION (MISSION / VISION) ---------- */
-const ToggleSection = ({ title, shortText, fullText, color }) => {
+
+const ToggleSection = ({
+  title,
+  shortText,
+  fullText,
+  color,
+  animationClass,
+}) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div
-      className="bg-white rounded-2xl p-8 shadow-md border-l-4 font-poppins"
+      className={`${animationClass} bg-white rounded-2xl p-8 shadow-md border-l-4 font-poppins`}
       style={{ borderColor: color }}
     >
       <h3 className="text-xl font-semibold mb-3" style={{ color }}>
@@ -262,7 +271,6 @@ const InfoCard = ({ title, text, color }) => (
     <p className="text-sm text-gray-600 mt-1">{text}</p>
   </div>
 );
-
 
 // our services
 function OurServices() {
@@ -433,7 +441,6 @@ function OurServices() {
     </section>
   );
 }
-
 
 // our clients carousel
 export const ClientsCarousel = () => {
@@ -628,6 +635,25 @@ function WhyChooseChakra() {
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm sm:text-base focus:ring-2 focus:ring-orange-400 outline-none"
               />
 
+              <div className="w-full max-w-md">
+                <label className="block mb-2 text-sm font-thin text-gray-700">
+                  Type Of Loan 
+                </label>
+                <select className="w-full px-4 py-3 rounded-lg border border-gray-300  focus:outline-none focus:ring-2 focus:ring-[#1E6FB8]  focus:border-[#1E6FB8] text-gray-700">
+                  <option value="">Choose</option>
+                  <option>Personal Loans</option>
+                  <option>Business Loans</option>
+                  <option>Home Loans</option>
+                  <option>Mortgage Loans</option>
+                  <option>Education Loans</option>
+                  <option>OD/CC</option>
+                  <option>LC/BG</option>
+                  <option>Insurance (Life/Health/General)</option>
+                  <option>Others (if any CIBIL issues)</option>
+                </select>
+              </div>
+
+              
               <textarea
                 rows="4"
                 placeholder="Message"

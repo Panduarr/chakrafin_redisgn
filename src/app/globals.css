@@ -78,3 +78,45 @@ body {
 }
 
 
+@keyframes Left {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes Right {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-left {
+  animation: Left 1s  ease-in-out forwards;
+}
+
+.animate-right {
+  animation: Right 1s ease-in-out forwards;
+}
+@keyframes Top {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-top {
+  animation: Top 1s ease-in-out forwards;
+}
