@@ -33,7 +33,7 @@ function Navbar() {
     { label: "About Us", href: "/#about", match: "#about" },
     { label: "Services", href: "/#services", match: "#services" },
     { label: "Clients", href: "/#clients", match: "#clients" },
-    { label: "Contact Us", href: "/#contact", match: "#contact" },
+    { label: "Contact Us", href: "/contact", match: "contact" },
   ];
 
   const isActive = (item) => {
